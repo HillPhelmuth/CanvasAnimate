@@ -1,0 +1,34 @@
+﻿@using Microsoft.JSInterop
+@inject IJSRuntime JsRuntime
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm">
+            <p>Keyboard move (a - left, w - up, s - down, d - right )</p>
+            <img id="imgelem" src="_content/CanvasAnimateRCL/Green-Cap-Character-16x18.png" />
+            <button class="btn btn-primary" @onclick="Animate">Animate</button>
+        </div>
+        <div class="col-sm">
+            <p>Keyboard attack (a - attack)</p>
+            <img id="wizImg" src="_content/CanvasAnimateRCL/sorloAttack.png"/>
+            <button class="btn btn-primary" @onclick="Attack">Attack</button>
+        </div>
+    </div>
+</div>
+
+<hr />
+<canvas id="canvasAnim" style="border: 1px solid black;" width="300" height="200"></canvas>
+
+@code {
+    private CanvasAnimateInterop CanvasAnimate => new CanvasAnimateInterop(JsRuntime);
+
+    private async Task Animate()
+    {
+        await CanvasAnimate.Animate();
+    }
+
+    private async Task Attack()
+    {
+        await CanvasAnimate.Attack();
+    }
+}

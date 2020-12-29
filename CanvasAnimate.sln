@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30804.86
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AnimateCanvas", "AnimateCanvas\AnimateCanvas.csproj", "{0CA5D047-EED7-41F2-A0B7-0DBEA3EF9ED8}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CanvasAnimateRCL", "CanvasAnimateRCL\CanvasAnimateRCL.csproj", "{91916A1D-2285-4F95-97CA-E5BB610FB8D7}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0CA5D047-EED7-41F2-A0B7-0DBEA3EF9ED8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0CA5D047-EED7-41F2-A0B7-0DBEA3EF9ED8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0CA5D047-EED7-41F2-A0B7-0DBEA3EF9ED8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0CA5D047-EED7-41F2-A0B7-0DBEA3EF9ED8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{91916A1D-2285-4F95-97CA-E5BB610FB8D7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{91916A1D-2285-4F95-97CA-E5BB610FB8D7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{91916A1D-2285-4F95-97CA-E5BB610FB8D7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{91916A1D-2285-4F95-97CA-E5BB610FB8D7}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {ED1C9821-F2F0-45D3-BC0A-19F685937551}
+	EndGlobalSection
+EndGlobal
