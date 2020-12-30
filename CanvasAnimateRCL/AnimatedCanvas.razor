@@ -1,6 +1,4 @@
-﻿@using Microsoft.JSInterop
-@inject IJSRuntime JsRuntime
-
+﻿
 <div class="container">
     <div class="row">
         <div class="col-sm">
@@ -9,26 +7,32 @@
             <button class="btn btn-primary" @onclick="Animate">Animate</button>
         </div>
         <div class="col-sm">
-            <p>Keyboard attack (a - attack)</p>
-            <img id="wizImg" src="_content/CanvasAnimateRCL/sorloAttack.png"/>
-            <button class="btn btn-primary" @onclick="Attack">Attack</button>
+            <p>Keyboard actions</p>
+            <p>Keyboard move (a - left, w - up, s - down, d - right )</p>
+            <p>Keyboard actions (k - attack, j - jump attack)</p>
+            <button class="btn btn-primary" @onclick="InitKnight">Initialize Knight</button>
+            @*<button class="btn btn-primary" @onclick="@(() => Attack())">Attack</button>
+            <button class="btn btn-primary" @onclick="@(() => Attack("JumpAttack"))">Jump Attack</button>*@ 
+        </div>
+        <div class="col-sm">
+            <div style="max-height:300px; overflow:scroll">
+                <img id="attack" src="_content/CanvasAnimateRCL/ActionSheets/AttackImg.png" />
+                <img id="idle" src="_content/CanvasAnimateRCL/ActionSheets/IdleImg.png" />
+                <img id="jumpAttack" src="_content/CanvasAnimateRCL/ActionSheets/JumpAttackImg.png" />
+                <img id="run" src="_content/CanvasAnimateRCL/ActionSheets/RunImg.png" />
+            </div>
         </div>
     </div>
 </div>
-
 <hr />
-<canvas id="canvasAnim" style="border: 1px solid black;" width="300" height="200"></canvas>
-
-@code {
-    private CanvasAnimateInterop CanvasAnimate => new CanvasAnimateInterop(JsRuntime);
-
-    private async Task Animate()
+<canvas id="canvasAnim" style="border: 1px solid black; margin:auto" width="750" height="500"></canvas>
+<hr />
+<p>Action log</p>
+<ul style="font-size:.8rem">
+    @foreach (var log in Logs)
     {
-        await CanvasAnimate.Animate();
+        <li>@log</li>
     }
+</ul>
 
-    private async Task Attack()
-    {
-        await CanvasAnimate.Attack();
-    }
-}
+

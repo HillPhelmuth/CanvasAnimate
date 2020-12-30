@@ -1,6 +1,6 @@
-﻿const SCALE = 5;
-let cols = 5;
-let rows = 1;
+﻿const SCALE = 4;
+let cols = 1;
+let rows = 10;
 let width = 16;
 let height = 18;
 let scaledWidth = SCALE * width;
@@ -10,9 +10,8 @@ const FACING_DOWN = 0;
 const FACING_UP = 1;
 const FACING_LEFT = 2;
 const FACING_RIGHT = 3;
-const FRAME_LIMIT = 12;
+const FRAME_LIMIT = 6;
 const MOVEMENT_SPEED = 1;
-const ATTACK_LOOP = [0, 1, 2, 3, 4];
 let canvas = document.getElementById('canvasAnim');
 let ctx = canvas.getContext('2d');
 let keyPresses = {};
@@ -23,55 +22,13 @@ let positionX = 0;
 let positionY = 0;
 let img = document.getElementById('imgelem');
 let walkImg = document.getElementById('imgelem');
-let wizImg = document.getElementById('wizImg');
-let multiplier = 1;
 
-//----------------------- Attack functions ------------------------------------------
-export function initAttack(sprite) {
-    if (sprite === 'mage') {
-        img = wizImg;
-    }
-    height = img.height / rows;
-    width = img.width / cols;
-    window.addEventListener('keydown', keyDownListener, false);
-    function keyDownListener(event) {
-        keyPresses[event.key] = true;
-    }
-
-    window.addEventListener('keyup', keyUpListener, false);
-    function keyUpListener(event) {
-        keyPresses[event.key] = false;
-    }
-    window.requestAnimationFrame(attackLoop);
-}
-function attackLoop() {
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-    let hasMoved = false;
-    if (keyPresses.a) {
-        hasMoved = true;
-    }
-    if (hasMoved) {
-        frameCount++;
-        if (frameCount >= FRAME_LIMIT) {
-            frameCount = 0;
-            currentLoopIndex++;
-            if (currentLoopIndex >= ATTACK_LOOP.length) {
-                currentLoopIndex = 0;
-            }
-        }
-    }
-    if (!hasMoved) {
-        currentLoopIndex = 0;
-    }
-    drawFrame(ATTACK_LOOP[currentLoopIndex], 0, 0, 0);
-    window.requestAnimationFrame(attackLoop);
-}
 // -------------------------- Shared Functions -------------------------------
 
 function drawFrame(frameX, frameY, canvasX, canvasY) {
     ctx.drawImage(img,
-        frameX * width * multiplier, frameY * height, width * multiplier, height,
-        canvasX, canvasY, scaledWidth * multiplier, scaledHeight);
+        frameX * width, frameY * height, width, height,
+        canvasX, canvasY, scaledWidth, scaledHeight);
 }
 
 // -------------------------- Dude walking around with asdw keys --------------------

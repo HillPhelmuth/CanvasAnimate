@@ -17,6 +17,9 @@ namespace CanvasAnimateRCL
     public class CanvasAnimateInterop : IAsyncDisposable
     {
         private readonly Lazy<Task<IJSObjectReference>> moduleTask;
+        public Action<string> OnLogChange;
+        
+        private DotNetObjectReference<CanvasAnimateInterop> objRef;
 
         public CanvasAnimateInterop(IJSRuntime jsRuntime)
         {
@@ -32,15 +35,22 @@ namespace CanvasAnimateRCL
 
         public async ValueTask Attack(string sprite = "mage")
         {
+            objRef = DotNetObjectReference.Create(this);
             var module = await moduleTask.Value;
-            await module.InvokeVoidAsync("initAttack", sprite);
+            await module.InvokeVoidAsync("initAction", objRef);
         }
-        
+
+        [JSInvokable("HandleActionLog")]
+        public void HandleActionLog(string actionMessage)
+        {
+            OnLogChange?.Invoke(actionMessage);
+        }
         
         public async ValueTask DisposeAsync()
         {
             if (moduleTask.IsValueCreated)
             {
+                objRef?.Dispose();
                 var module = await moduleTask.Value;
                 await module.DisposeAsync();
             }

@@ -1,8 +1,22 @@
-<Project Sdk="Microsoft.NET.Sdk.Razor">
+﻿<Project Sdk="Microsoft.NET.Sdk.Razor">
 
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
   </PropertyGroup>
+
+  <ItemGroup>
+    <Content Remove="JsonFIles\AttackJson.json" />
+    <Content Remove="JsonFIles\IdleJson.json" />
+    <Content Remove="JsonFIles\JumpAttackJson.json" />
+    <Content Remove="JsonFIles\RunJson.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="JsonFIles\AttackJson.json" />
+    <EmbeddedResource Include="JsonFIles\IdleJson.json" />
+    <EmbeddedResource Include="JsonFIles\JumpAttackJson.json" />
+    <EmbeddedResource Include="JsonFIles\RunJson.json" />
+  </ItemGroup>
 
   
   <ItemGroup>
