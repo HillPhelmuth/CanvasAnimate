@@ -17,35 +17,42 @@ namespace CanvasAnimateRCL
         private CanvasAnimateInterop CanvasAnimate => new(JsRuntime);
         private KnightAnimInterop KnightAnimate => new(JsInProcess);
         public List<string> Logs { get; set; } = new();
+        public static Action<string> OnAddLog;
         protected override Task OnInitializedAsync()
         {
             CanvasAnimate.OnLogChange += HandleInteropMessage;
+            OnAddLog += HandleInteropMessage;
             return base.OnInitializedAsync();
         }
 
         protected async Task InitKnight()
         {
-            await KnightAnimate.Run();
+            await KnightAnimate.Init();
         }
-
+        
         private async Task Animate()
         {
             await CanvasAnimate.Animate();
         }
 
-        private async Task Attack(string style = "Attack")
+        private async Task Reset()
         {
-            await KnightAnimate.Attack(style);
+            await KnightAnimate.Reset();
         }
 
         private void HandleInteropMessage(string message)
         {
             Logs.Add(message);
-            if (Logs.Count > 20)
+            if (Logs.Count > 200)
                 Logs.RemoveAt(0);
             StateHasChanged();
         }
 
+        [JSInvokable]
+        public static void MessageFromJs(string name)
+        {
+            OnAddLog.Invoke(name);
+        }
         public async ValueTask DisposeAsync()
         {
             CanvasAnimate.OnLogChange -= HandleInteropMessage;

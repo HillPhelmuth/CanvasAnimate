@@ -11,24 +11,9 @@ namespace CanvasAnimateRCL
 {
     public static class AnimationSpritesData
     {
-        public static SpriteDataModel AttackSprite { get; set; }
-        public static SpriteDataModel JumpAttackSprite { get; set; }
-        public static SpriteDataModel IdleSprite { get; set; }
-        public static SpriteDataModel RunSprite { get; set; }
         public static async Task<SpriteDataModel> GetSpriteData(string sheetname)
         {
-            return await DeserializeFromAssembly($"{sheetname}Json.json");
-            //switch (sheetname)
-            //{
-            //    case "Attack":
-            //        return await DeserializeFromAssembly("AttackJson.json");
-            //    case "JumpAttack":
-            //        return await DeserializeFromAssembly("JumpAttackJson.json");
-            //    case "Idle":
-            //        return await DeserializeFromAssembly("IdleJson.json");
-            //    case "Run":
-            //        return await DeserializeFromAssembly("RunJson.json");
-            //}
+            return await DeserializeFromAssembly($"{sheetname}BothJson.json");
         }
         private static async Task<SpriteDataModel> DeserializeFromAssembly(string filename)
         {

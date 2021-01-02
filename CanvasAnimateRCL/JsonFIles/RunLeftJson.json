@@ -1,0 +1,92 @@
+{"frames": [
+
+{
+	"filename": "RunLeft-1.png",
+	"frame": {"x":0,"y":0,"w":59,"h":71},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":59,"h":71},
+	"sourceSize": {"w":59,"h":71}
+},
+{
+	"filename": "RunLeft-2.png",
+	"frame": {"x":0,"y":71,"w":59,"h":71},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":59,"h":71},
+	"sourceSize": {"w":59,"h":71}
+},
+{
+	"filename": "RunLeft-3.png",
+	"frame": {"x":0,"y":142,"w":59,"h":71},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":59,"h":71},
+	"sourceSize": {"w":59,"h":71}
+},
+{
+	"filename": "RunLeft-4.png",
+	"frame": {"x":0,"y":213,"w":59,"h":71},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":59,"h":71},
+	"sourceSize": {"w":59,"h":71}
+},
+{
+	"filename": "RunLeft-5.png",
+	"frame": {"x":0,"y":284,"w":59,"h":71},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":59,"h":71},
+	"sourceSize": {"w":59,"h":71}
+},
+{
+	"filename": "RunLeft-6.png",
+	"frame": {"x":0,"y":355,"w":59,"h":71},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":59,"h":71},
+	"sourceSize": {"w":59,"h":71}
+},
+{
+	"filename": "RunLeft-7.png",
+	"frame": {"x":0,"y":426,"w":59,"h":71},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":59,"h":71},
+	"sourceSize": {"w":59,"h":71}
+},
+{
+	"filename": "RunLeft-8.png",
+	"frame": {"x":0,"y":497,"w":59,"h":71},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":59,"h":71},
+	"sourceSize": {"w":59,"h":71}
+},
+{
+	"filename": "RunLeft-9.png",
+	"frame": {"x":0,"y":568,"w":59,"h":71},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":59,"h":71},
+	"sourceSize": {"w":59,"h":71}
+},
+{
+	"filename": "RunLeft-10.png",
+	"frame": {"x":0,"y":639,"w":59,"h":71},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":59,"h":71},
+	"sourceSize": {"w":59,"h":71}
+}],
+"meta": {
+	"app": "https://www.codeandweb.com/texturepacker",
+	"version": "1.0",
+	"image": "RunLeftImg.png",
+	"format": "RGBA8888",
+	"size": {"w":59,"h":710},
+	"scale": "1",
+	"smartupdate": "$TexturePacker:SmartUpdate:8c43c22f3e9b8dee1845149ac4809aef:aa423817cc244f3df6d17d30481d393a:0f4988b95fe801f05d27f1a9c37a3383$"
+}
+}

@@ -9,8 +9,12 @@ namespace CanvasAnimateRCL
 {
     public class SpriteDataModel
     {
-        [JsonPropertyName("frames")]
-        public List<Frame> Frames { get; set; }
+        [JsonPropertyName("rightFrames")]
+        public List<Frame> RightFrames { get; set; }
+        [JsonPropertyName("leftFrames")]
+        public List<Frame> LeftFrames { get; set; }
+        [JsonPropertyName("name")]
+        public string Name { get; set; }
 
         [JsonPropertyName("imgUrl")]
         public string ImgUrl { get; set; }

@@ -5,17 +5,45 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Content Remove="JsonFIles\AttackJson.json" />
-    <Content Remove="JsonFIles\IdleJson.json" />
-    <Content Remove="JsonFIles\JumpAttackJson.json" />
-    <Content Remove="JsonFIles\RunJson.json" />
+    <Compile Remove="wwwroot\ActionSheets\**" />
+    <Content Remove="wwwroot\ActionSheets\**" />
+    <EmbeddedResource Remove="wwwroot\ActionSheets\**" />
+    <None Remove="wwwroot\ActionSheets\**" />
   </ItemGroup>
 
   <ItemGroup>
-    <EmbeddedResource Include="JsonFIles\AttackJson.json" />
-    <EmbeddedResource Include="JsonFIles\IdleJson.json" />
-    <EmbeddedResource Include="JsonFIles\JumpAttackJson.json" />
-    <EmbeddedResource Include="JsonFIles\RunJson.json" />
+    <Content Remove="JsonFIles\Archer\AttackArcherJson.json" />
+    <Content Remove="JsonFIles\Archer\IdleArcherJson.json" />
+    <Content Remove="JsonFIles\AttackBothJson.json" />
+    <Content Remove="JsonFIles\AttackJson.json" />
+    <Content Remove="JsonFIles\BombBothJson.json" />
+    <Content Remove="JsonFIles\DeadBothJson.json" />
+    <Content Remove="JsonFIles\IdleBothJson.json" />
+    <Content Remove="JsonFIles\IdleJson.json" />
+    <Content Remove="JsonFIles\JumpArcherJson.json" />
+    <Content Remove="JsonFIles\JumpAttackBothJson.json" />
+    <Content Remove="JsonFIles\JumpAttackJson.json" />
+    <Content Remove="JsonFIles\Mage\AttackMageJson.json" />
+    <Content Remove="JsonFIles\Mage\DeadMageJson.json" />
+    <Content Remove="JsonFIles\Mage\IdleMageJson.json" />
+    <Content Remove="JsonFIles\RunBothJson.json" />
+    <Content Remove="JsonFIles\RunJson.json" />
+    <Content Remove="JsonFIles\RunLeftJson.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="JsonFIles\Archer\AttackArcherJson.json" />
+    <EmbeddedResource Include="JsonFIles\Archer\IdleArcherJson.json" />
+    <EmbeddedResource Include="JsonFIles\Archer\JumpArcherJson.json" />
+    <EmbeddedResource Include="JsonFIles\BombBothJson.json" />
+    <EmbeddedResource Include="JsonFIles\JumpAttackBothJson.json" />
+    <EmbeddedResource Include="JsonFIles\AttackBothJson.json" />
+    <EmbeddedResource Include="JsonFIles\DeadBothJson.json" />
+    <EmbeddedResource Include="JsonFIles\IdleBothJson.json" />
+    <EmbeddedResource Include="JsonFIles\Mage\AttackMageJson.json" />
+    <EmbeddedResource Include="JsonFIles\Mage\DeadMageJson.json" />
+    <EmbeddedResource Include="JsonFIles\Mage\IdleMageJson.json" />
+    <EmbeddedResource Include="JsonFIles\RunBothJson.json" />
   </ItemGroup>
 
   
@@ -25,6 +53,10 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Components.Web" Version="5.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="JsonFIles\Monsters\" />
   </ItemGroup>
 
 </Project>
