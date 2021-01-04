@@ -1,0 +1,66 @@
+{"frames": [
+
+{
+	"filename": "IdleWar-0.png",
+	"specs": {"x":0,"y":0,"w":110,"h":82},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":110,"h":82},
+	"sourceSize": {"w":110,"h":82},
+	"pivot": {"x":0.5,"y":0.5}
+},
+{
+	"filename": "IdleWar-1.png",
+	"specs": {"x":110,"y":0,"w":110,"h":82},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":110,"h":82},
+	"sourceSize": {"w":110,"h":82},
+	"pivot": {"x":0.5,"y":0.5}
+},
+{
+	"filename": "IdleWar-2.png",
+	"specs": {"x":220,"y":0,"w":110,"h":82},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":110,"h":82},
+	"sourceSize": {"w":110,"h":82},
+	"pivot": {"x":0.5,"y":0.5}
+},
+{
+	"filename": "IdleWar-3.png",
+	"specs": {"x":330,"y":0,"w":110,"h":82},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":110,"h":82},
+	"sourceSize": {"w":110,"h":82},
+	"pivot": {"x":0.5,"y":0.5}
+},
+{
+	"filename": "IdleWar-4.png",
+	"specs": {"x":440,"y":0,"w":110,"h":82},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":110,"h":82},
+	"sourceSize": {"w":110,"h":82},
+	"pivot": {"x":0.5,"y":0.5}
+},
+{
+	"filename": "IdleWar-5.png",
+	"specs": {"x":550,"y":0,"w":110,"h":82},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":110,"h":82},
+	"sourceSize": {"w":110,"h":82},
+	"pivot": {"x":0.5,"y":0.5}
+}],
+"meta": {
+	"app": "https://www.codeandweb.com/texturepacker",
+	"version": "1.0",
+	"image": "IdleWarImg.png",
+	"format": "RGBA8888",
+	"size": {"w":660,"h":82},
+	"scale": "1",
+	"smartupdate": "$TexturePacker:SmartUpdate:2ed1631691f755dca6afb5b4df5992b7:5349c12465dc2318c5998c6a926afa94:ea32b40894180c92d8db20de525faebd$"
+}
+}

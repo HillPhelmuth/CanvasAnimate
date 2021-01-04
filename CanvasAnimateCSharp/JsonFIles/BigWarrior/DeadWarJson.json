@@ -1,0 +1,93 @@
+{"frames": [
+
+{
+	"filename": "DeadWar-0.png",
+	"specs": {"x":0,"y":0,"w":110,"h":82},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":110,"h":82},
+	"sourceSize": {"w":110,"h":82},
+	"pivot": {"x":0.5,"y":0.5}
+},
+{
+	"filename": "DeadWar-1.png",
+	"specs": {"x":110,"y":0,"w":110,"h":82},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":110,"h":82},
+	"sourceSize": {"w":110,"h":82},
+	"pivot": {"x":0.5,"y":0.5}
+},
+{
+	"filename": "DeadWar-2.png",
+	"specs": {"x":220,"y":0,"w":110,"h":82},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":110,"h":82},
+	"sourceSize": {"w":110,"h":82},
+	"pivot": {"x":0.5,"y":0.5}
+},
+{
+	"filename": "DeadWar-3.png",
+	"specs": {"x":330,"y":0,"w":110,"h":82},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":110,"h":82},
+	"sourceSize": {"w":110,"h":82},
+	"pivot": {"x":0.5,"y":0.5}
+},
+{
+	"filename": "DeadWar-4.png",
+	"specs": {"x":440,"y":0,"w":110,"h":82},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":110,"h":82},
+	"sourceSize": {"w":110,"h":82},
+	"pivot": {"x":0.5,"y":0.5}
+},
+{
+	"filename": "DeadWar-5.png",
+	"specs": {"x":550,"y":0,"w":110,"h":82},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":110,"h":82},
+	"sourceSize": {"w":110,"h":82},
+	"pivot": {"x":0.5,"y":0.5}
+},
+{
+	"filename": "DeadWar-6.png",
+	"specs": {"x":660,"y":0,"w":110,"h":82},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":110,"h":82},
+	"sourceSize": {"w":110,"h":82},
+	"pivot": {"x":0.5,"y":0.5}
+},
+{
+	"filename": "DeadWar-7.png",
+	"specs": {"x":770,"y":0,"w":110,"h":82},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":110,"h":82},
+	"sourceSize": {"w":110,"h":82},
+	"pivot": {"x":0.5,"y":0.5}
+},
+{
+	"filename": "DeadWar-8.png",
+	"specs": {"x":880,"y":0,"w":110,"h":82},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":110,"h":82},
+	"sourceSize": {"w":110,"h":82},
+	"pivot": {"x":0.5,"y":0.5}
+}],
+"meta": {
+	"app": "https://www.codeandweb.com/texturepacker",
+	"version": "1.0",
+	"image": "DeadWarImg.png",
+	"format": "RGBA8888",
+	"size": {"w":990,"h":82},
+	"scale": "1",
+	"smartupdate": "$TexturePacker:SmartUpdate:e980efebb7cc4e967b3652126d767e60:5201a0dd515ddcd6c20dc3f95fb146c5:d9e24dd638a84d3e1bf56ec63649051c$"
+}
+}
