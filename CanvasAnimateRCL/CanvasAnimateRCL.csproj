@@ -5,13 +5,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="wwwroot\ActionSheets\**" />
-    <Content Remove="wwwroot\ActionSheets\**" />
-    <EmbeddedResource Remove="wwwroot\ActionSheets\**" />
-    <None Remove="wwwroot\ActionSheets\**" />
-  </ItemGroup>
-
-  <ItemGroup>
     <Content Remove="JsonFIles\Archer\AttackArcherJson.json" />
     <Content Remove="JsonFIles\Archer\IdleArcherJson.json" />
     <Content Remove="JsonFIles\AttackBothJson.json" />

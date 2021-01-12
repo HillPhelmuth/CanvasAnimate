@@ -1,0 +1,136 @@
+{
+  "frames": [
+    {
+      "filename": "Dead (1).png",
+      "specs": {
+        "x": 0,
+        "y": 0,
+        "w": 94,
+        "h": 75
+      },
+      "sourceSize": {
+        "w": 94,
+        "h": 75
+      }
+    },
+    {
+      "filename": "Dead (2).png",
+      "specs": {
+        "x": 94,
+        "y": 0,
+        "w": 94,
+        "h": 75
+      },
+      "sourceSize": {
+        "w": 94,
+        "h": 75
+      }
+    },
+    {
+      "filename": "Dead (3).png",
+      "specs": {
+        "x": 188,
+        "y": 0,
+        "w": 94,
+        "h": 75
+      },
+      "sourceSize": {
+        "w": 94,
+        "h": 75
+      }
+    },
+    {
+      "filename": "Dead (4).png",
+      "specs": {
+        "x": 282,
+        "y": 0,
+        "w": 94,
+        "h": 75
+      },
+      "sourceSize": {
+        "w": 94,
+        "h": 75
+      }
+    },
+    {
+      "filename": "Dead (5).png",
+      "specs": {
+        "x": 376,
+        "y": 0,
+        "w": 94,
+        "h": 75
+      },
+      "sourceSize": {
+        "w": 94,
+        "h": 75
+      }
+    },
+    {
+      "filename": "Dead (6).png",
+      "specs": {
+        "x": 470,
+        "y": 0,
+        "w": 94,
+        "h": 75
+      },
+      "sourceSize": {
+        "w": 94,
+        "h": 75
+      }
+    },
+    {
+      "filename": "Dead (7).png",
+      "specs": {
+        "x": 564,
+        "y": 0,
+        "w": 94,
+        "h": 75
+      },
+      "sourceSize": {
+        "w": 94,
+        "h": 75
+      }
+    },
+    {
+      "filename": "Dead (8).png",
+      "specs": {
+        "x": 658,
+        "y": 0,
+        "w": 94,
+        "h": 75
+      },
+      "sourceSize": {
+        "w": 94,
+        "h": 75
+      }
+    },
+    {
+      "filename": "Dead (9).png",
+      "specs": {
+        "x": 752,
+        "y": 0,
+        "w": 94,
+        "h": 75
+      },
+      "sourceSize": {
+        "w": 94,
+        "h": 75
+      }
+    },
+    {
+      "filename": "Dead (10).png",
+      "specs": {
+        "x": 846,
+        "y": 0,
+        "w": 94,
+        "h": 75
+      },
+      "sourceSize": {
+        "w": 94,
+        "h": 75
+      }
+    }
+  ],
+
+  "name": "KnightDead"
+}

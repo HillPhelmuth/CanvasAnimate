@@ -1,5 +1,46 @@
 ﻿@page "/"
+@inject NavigationManager Navigation
+@inject CanvasAnimateInterop CanvasAnimateInterop
+@inject KnightAnimInterop KnightAnimInterop
+<h2 class="text-center">Javascript animation</h2>
+@if (!isHideInfo)
+{
+    <p>This page uses javascript to generate and handle the keyboard events and uses <a target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/API/window/requestAnimationFrame">window.requestAnimationFrame() </a> in both <code>canvasAnimate.js</code> <a target="_blank" href="@(baseUrl)_content/CanvasAnimateRCL/canvasAnimate.js">(view code)</a>  and <code>animateKnightDirect.js</code> <a target="_blank" href="@(baseUrl)_content/CanvasAnimateRCL/animateKnightDirect.js">(view code)</a>  to paint the animation frames at a specific interval. You can to view the javascript code. </p>
+}
+<p>
+    
+    <button class="btn btn-secondary" @onclick="@(() => isHideInfo = !isHideInfo)">Toggle Content</button>
 
+</p>
+@if (!isHideInfo)
+{
+    <p>The C# pages (<NavLink href="combatAnimations">C# Overhead</NavLink> and <NavLink href="csharp">C# Combat</NavLink>) still use a little javascript <a target="_blank" href="@(baseUrl)_content/CanvasAnimateCSharp/animateInterop.js">(view code)</a> to generate the keyboard events, but the events are handled in c# code. In the c# pages we're using the <a target="_blank" href="https://github.com/excubo-ag/Blazor.Canvas">Blazor.Canvas library</a> to paint the image to a canvas element and <a target="_blank" href="https://docs.microsoft.com/en-us/dotnet/api/system.timers.timer?view=net-5.0">System.Timers.Timer</a> to set the frame rate interval</p>
 
+}
+<hr />
+<AnimatedCanvas />
+<div hidden>
+    <CanvasCSharp />
+</div>
 
-<AnimatedCanvas/>
+@code {
+    private bool isHideInfo;
+    private string baseUrl;
+    
+    protected override void OnInitialized()
+    {
+        baseUrl = Navigation.BaseUri;
+        base.OnInitialized();
+    }
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            await CanvasAnimateInterop.Ping();
+            await KnightAnimInterop.Ping();
+        }
+        await base.OnAfterRenderAsync(firstRender);
+    }
+
+}

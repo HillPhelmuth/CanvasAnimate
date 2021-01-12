@@ -1,0 +1,20 @@
+{"frames": [
+
+{
+	"filename": "WarAttack2-0.png",
+	"specs": {"x":0,"y":0,"w":129,"h":96}
+},
+{
+	"filename": "WarAttack2-1.png",
+	"specs": {"x":129,"y":0,"w":129,"h":96}
+},
+{
+	"filename": "WarAttack2-2.png",
+	"specs": {"x":258,"y":0,"w":129,"h":96}
+},
+{
+	"filename": "WarAttack2-3.png",
+	"specs": {"x":387,"y":0,"w":129,"h":96}
+}],
+"name": "WarAttack2"
+}

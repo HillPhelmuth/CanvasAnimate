@@ -7,6 +7,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AnimateCanvas", "AnimateCan
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CanvasAnimateRCL", "CanvasAnimateRCL\CanvasAnimateRCL.csproj", "{91916A1D-2285-4F95-97CA-E5BB610FB8D7}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CanvasAnimateCSharp", "CanvasAnimateCSharp\CanvasAnimateCSharp.csproj", "{BAFF83C8-4D2A-44A7-85B4-28A167214061}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{91916A1D-2285-4F95-97CA-E5BB610FB8D7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{91916A1D-2285-4F95-97CA-E5BB610FB8D7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{91916A1D-2285-4F95-97CA-E5BB610FB8D7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BAFF83C8-4D2A-44A7-85B4-28A167214061}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BAFF83C8-4D2A-44A7-85B4-28A167214061}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BAFF83C8-4D2A-44A7-85B4-28A167214061}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BAFF83C8-4D2A-44A7-85B4-28A167214061}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -11,6 +11,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\CanvasAnimateCSharp\CanvasAnimateCSharp.csproj" />
     <ProjectReference Include="..\CanvasAnimateRCL\CanvasAnimateRCL.csproj" />
   </ItemGroup>
 

@@ -1,0 +1,36 @@
+{"frames": [
+
+{
+	"filename": "WizardAttack2-0.png",
+	"specs": {"x":0,"y":0,"w":116,"h":95}
+},
+{
+	"filename": "WizardAttack2-1.png",
+	"specs": {"x":116,"y":0,"w":116,"h":95}
+},
+{
+	"filename": "WizardAttack2-2.png",
+	"specs": {"x":232,"y":0,"w":116,"h":95}
+},
+{
+	"filename": "WizardAttack2-3.png",
+	"specs": {"x":348,"y":0,"w":116,"h":95}
+},
+{
+	"filename": "WizardAttack2-4.png",
+	"specs": {"x":464,"y":0,"w":116,"h":95}
+},
+{
+	"filename": "WizardAttack2-5.png",
+	"specs": {"x":580,"y":0,"w":116,"h":95}
+},
+{
+	"filename": "WizardAttack2-6.png",
+	"specs": {"x":696,"y":0,"w":116,"h":95}
+},
+{
+	"filename": "WizardAttack2-7.png",
+	"specs": {"x":812,"y":0,"w":116,"h":95}
+}],
+"name": "WizardAttack2"
+}

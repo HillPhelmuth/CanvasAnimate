@@ -1,0 +1,163 @@
+{
+	"frames": [
+
+		{
+			"filename": "Green-cap-0.png",
+			"specs": {
+				"x": 0,
+				"y": 0,
+				"w": 16,
+				"h": 18
+			},
+			"sourceSize": {
+				"w": 16,
+				"h": 18
+			}
+		},
+		{
+			"filename": "Green-cap-1.png",
+			"specs": {
+				"x": 16,
+				"y": 0,
+				"w": 16,
+				"h": 18
+			},
+			"sourceSize": {
+				"w": 16,
+				"h": 18
+			}
+		},
+		{
+			"filename": "Green-cap-2.png",
+			"specs": {
+				"x": 32,
+				"y": 0,
+				"w": 16,
+				"h": 18
+			},
+			"sourceSize": {
+				"w": 16,
+				"h": 18
+			}
+		},
+		{
+			"filename": "Green-cap-3.png",
+			"specs": {
+				"x": 48,
+				"y": 0,
+				"w": 16,
+				"h": 18
+			},
+			"sourceSize": {
+				"w": 16,
+				"h": 18
+			}
+		},
+		{
+			"filename": "Green-cap-4.png",
+			"specs": {
+				"x": 64,
+				"y": 0,
+				"w": 16,
+				"h": 18
+			},
+			"sourceSize": {
+				"w": 16,
+				"h": 18
+			}
+		},
+		{
+			"filename": "Green-cap-5.png",
+			"specs": {
+				"x": 80,
+				"y": 0,
+				"w": 16,
+				"h": 18
+			},
+			"sourceSize": {
+				"w": 16,
+				"h": 18
+			}
+		},
+		{
+			"filename": "Green-cap-6.png",
+			"specs": {
+				"x": 96,
+				"y": 0,
+				"w": 16,
+				"h": 18
+			},
+			"sourceSize": {
+				"w": 16,
+				"h": 18
+			}
+		},
+		{
+			"filename": "Green-cap-7.png",
+			"specs": {
+				"x": 112,
+				"y": 0,
+				"w": 16,
+				"h": 18
+			},
+			"sourceSize": {
+				"w": 16,
+				"h": 18
+			}
+		},
+		{
+			"filename": "Green-cap-8.png",
+			"specs": {
+				"x": 128,
+				"y": 0,
+				"w": 16,
+				"h": 18
+			},
+			"sourceSize": {
+				"w": 16,
+				"h": 18
+			}
+		},
+		{
+			"filename": "Green-cap-9.png",
+			"specs": {
+				"x": 144,
+				"y": 0,
+				"w": 16,
+				"h": 18
+			},
+			"sourceSize": {
+				"w": 16,
+				"h": 18
+			}
+		},
+		{
+			"filename": "Green-cap-10.png",
+			"specs": {
+				"x": 160,
+				"y": 0,
+				"w": 16,
+				"h": 18
+			},
+			"sourceSize": {
+				"w": 16,
+				"h": 18
+			}
+		},
+		{
+			"filename": "Green-cap-11.png",
+			"specs": {
+				"x": 176,
+				"y": 0,
+				"w": 16,
+				"h": 18
+			},
+			"sourceSize": {
+				"w": 16,
+				"h": 18
+			}
+		}
+	],
+	"name":  "Overhead",
+	"imgUrl": "iVBORw0KGgoAAAANSUhEUgAAAMAAAAASCAMAAAA69CERAAAALVBMVEUAAAAAAADy1sEtn0o/lj/39/dRwZSEakx3OBdcxHczslOZe1hyXEJf4qxCxGOHjnbvAAAAAXRSTlMAQObYZgAAAAlwSFlzAAALEwAACxMBAJqcGAAAAm9JREFUSMfNV9ty6zAINLqmlpv//9wDCCSEnJ6kT9V0aq+0wC7GnvY4eAGu44P1x/gAX7hsiE+w4j/Hj1+8nvAigcNwdv75Lj9+yJf88U0+FuCIUw14Q//FztCKsVrkAlv+8xV+Mj1G0egNbThiAfx5aoXd0IIRxo7Hxg8GodfCGOF7Q5tBeD5PEsSBcGfI4wjEjhGkZc7QDT5pTbwacpjGtadgvje0GSR9VC+CDLo3tBmUkRpDtRtaMfJPtjD43tCKDwjq4cbQhnFCRH3QJ+INrVgLjABvaMeBHYwC0xDcYeKHEOaHYzV0g0kLBmh+b8hhrTDxNCSCnEEhWCiGaIsv1iBt9QXHK0OC4Y6+GXIYdzKH4EUDxFDugpJiWPnf3pDwszOokuC4N/QCv09PpVHBlkrveAEVKB0VwaDn352fE7gGyBNzDek9CSsKwX7Xg9uwYOM7OnWs5e+MqriDJCB0QyqoGwxdIOpKDem5FZGIVOYXzZgYZyOocRIrL4AZqQCyp/RCOa2dMFsAyh44QC2ppKpbdCU8RirT+TxFjMel5l5R6MXykwnQB1DNxLWSVgMltTQNVPDPg6ZkGkjNpsdmXdTRa7xE1D7GSqBzMMcXPTHlUybBg0/YG7imosrnZoQI1zkj1zpDAKRvNgAqYRNfL3zE7aqjAY1mwGDS2prBKx+ai+fzZipggnxNAVfDZXBbMNJR3WUMCB8WPPN3wVNg/1BZwWzo13zd0vvHg96JCg+wuCnml2AmJwKS6XwECF8D8O4B/Mv+wfpYz/3RB3y/1Ssv9RfsM7zBp2b5fyEA4Ob2V3y/pV+3V9hn+In/DxxCIVUwfyROAAAAAElFTkSuQmCC"
+}

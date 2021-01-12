@@ -1,5 +1,5 @@
 ﻿const SCALE = 2;
-const FRAME_LIMIT = 15;
+const FRAME_LIMIT = 10;
 let width = 59;
 let height = 71;
 let scaledWidth = width * SCALE;
@@ -194,10 +194,6 @@ function moveCharacter(deltaX, deltaY) {
         activeKey = "Bomb";
         isDead = true;
         reset('toDead');
-        //spriteFrames = (faceCurrent === FACE_LEFT) ? spritesDictionary[activeKey].leftFrames : spritesDictionary[activeKey].rightFrames;
-        //image.src = spritesDictionary[activeKey].imgUrl;
-        //img.src = spritesDictionary[activeKey].imgUrl;
-        //requestId = window.requestAnimationFrame(deadLoop);
     }
     if (positionX + deltaX > 0 && positionX + scaledWidth + deltaX < canvas.width) {
         positionX += deltaX;
@@ -223,4 +219,7 @@ export function reset(resetFunction) {
         initAnimation(spritesDictionary);
     }
     
+}
+export function ping() {
+    console.log("animateKnightDirect.js module imported");
 }

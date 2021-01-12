@@ -19,6 +19,11 @@ namespace CanvasAnimateRCL
                 "import", "./_content/CanvasAnimateRCL/animateKnightDirect.js").AsTask());
         }
 
+        public async ValueTask Ping()
+        {
+            var module = await moduleTask.Value;
+            module.InvokeVoid("ping");
+        }
         public async ValueTask Run()
         {
             var module = await moduleTask.Value;

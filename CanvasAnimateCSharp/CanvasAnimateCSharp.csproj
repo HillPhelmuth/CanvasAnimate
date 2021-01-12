@@ -1,0 +1,37 @@
+<Project Sdk="Microsoft.NET.Sdk.Razor">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+ 
+  <ItemGroup>
+    <EmbeddedResource Include="JsonFIles\War\WarAttack2.json" />
+    <EmbeddedResource Include="JsonFIles\War\WarAttack1.json" />
+    <EmbeddedResource Include="JsonFIles\War\WarDead.json" />
+    <EmbeddedResource Include="JsonFIles\War\WarIdle.json" />
+    <EmbeddedResource Include="JsonFIles\Overhead\OverheadDown.json" />
+    <EmbeddedResource Include="JsonFIles\Overhead\OverheadLeft.json" />
+    <EmbeddedResource Include="JsonFIles\Overhead\OverheadRight.json" />
+    <EmbeddedResource Include="JsonFIles\Overhead\OverheadUp.json" />
+    <EmbeddedResource Include="JsonFIles\Wizard\WizardAttack1.json" />
+    <EmbeddedResource Include="JsonFIles\Wizard\WizardAttack2.json" />
+    <EmbeddedResource Include="JsonFIles\Wizard\WizardDead.json" />
+    <EmbeddedResource Include="JsonFIles\Wizard\WizardIdle.json" />
+  </ItemGroup>
+  
+  <ItemGroup>
+    <SupportedPlatform Include="browser" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Excubo.Blazor.Canvas" Version="2.4.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Components.Web" Version="5.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="wwwroot\SpriteSheets\War\" />
+    <Folder Include="wwwroot\SpriteSheets\Ranger\" />
+    <Folder Include="wwwroot\SpriteSheets\overhead\" />
+  </ItemGroup>
+
+</Project>
