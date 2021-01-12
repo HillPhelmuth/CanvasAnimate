@@ -10,7 +10,7 @@ namespace CanvasAnimateCSharp
     {
         public static SpriteDataModel GetSpriteData(string sheetname)
         {
-            return DeserializeFromAssembly($"{sheetname}Json.json");
+            return DeserializeFromAssembly($"{sheetname}.json");
         }
         private static SpriteDataModel DeserializeFromAssembly(string filename)
         {

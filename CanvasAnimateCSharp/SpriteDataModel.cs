@@ -5,10 +5,9 @@ namespace CanvasAnimateCSharp
 {
     public class SpriteDataModel
     {
-        [JsonPropertyName("rightFrames")]
-        public List<Frame> RightFrames { get; set; }
-        [JsonPropertyName("leftFrames")]
-        public List<Frame> LeftFrames { get; set; }
+        [JsonPropertyName("frames")]
+        public List<Frame> Frames { get; set; }
+
         [JsonPropertyName("name")]
         public string Name { get; set; }
 
@@ -24,19 +23,7 @@ namespace CanvasAnimateCSharp
         [JsonPropertyName("specs")]
         public Specs Specs { get; set; }
 
-        [JsonPropertyName("sourceSize")]
-        public SourceSize SourceSize { get; set; }
     }
-
-    public class SourceSize
-    {
-        [JsonPropertyName("w")]
-        public double W { get; set; }
-
-        [JsonPropertyName("h")]
-        public double H { get; set; }
-    }
-
     public class Specs
     {
         [JsonPropertyName("x")]

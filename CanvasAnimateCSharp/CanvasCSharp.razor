@@ -1,17 +1,25 @@
 ﻿<h3 class="text-center">Canvas CSharp</h3>
-<img id="spriteImg" hidden src="@anim.CurrentSprite.ImgUrl" />
-<img id="bombImg" hidden src="@bombImgUrl" />
+<SpriteComponent/>
 <div class="container">
     <div class="row">
         <div class="col-sm">
-            <h6>Keyboard commands</h6>
+            <h6>Overhead commands</h6>
             <p>Move (a - left, w - up, s - down, d - right )</p>
-            <p>Actions (k - attack, j - jump attack, x - die, b - blow up)</p>
-            <button class="btn btn-primary" @onclick="InitKnight">Initialize Knight</button>
-            <button class="btn btn-secondary" @onclick="Reset">Reset</button>
+            <button class="btn btn-primary" @onclick="Reset">Reset</button>
         </div>
+        
+    </div>
+    <div class="row">
+        <div class="col-sm-1"></div>
         <div class="col-sm">
-            <div style="max-height:250px; width:100%; overflow:scroll">
+            <div style="margin-left: auto; margin-right: auto">
+                <Canvas @ref="canvas" style="border: 1px solid black" width="@CanvasSpecs.W" height="@CanvasSpecs.H"></Canvas>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm">
+            <div style="max-height:350px; width:100%; overflow:scroll">
                 <h6>Action log</h6>
                 <ol style="font-size:.8rem">
                     @foreach (var log in Logs)
@@ -22,13 +30,7 @@
                     }
                 </ol>
             </div>
-
-        </div>
-        <div class="col-sm">
-            <div style="max-height: 250px; max-width: 100%; overflow: scroll">
-                <img id="visibleImg" src="@anim.CurrentSprite.ImgUrl" />
-            </div>
         </div>
     </div>
 </div>
-<Canvas @ref="canvas" style="border: 1px solid black; margin: auto" width="750" height="750"></Canvas>
+

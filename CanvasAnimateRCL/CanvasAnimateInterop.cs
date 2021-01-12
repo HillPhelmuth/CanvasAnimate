@@ -27,17 +27,15 @@ namespace CanvasAnimateRCL
                "import", "./_content/CanvasAnimateRCL/canvasAnimate.js").AsTask());
         }
 
+        public async ValueTask Ping()
+        {
+            var module = await moduleTask.Value;
+            await module.InvokeVoidAsync("ping");
+        }
         public async ValueTask Animate()
         {
             var module = await moduleTask.Value;
             await module.InvokeVoidAsync("initCanvasAnimate");
-        }
-
-        public async ValueTask Attack(string sprite = "mage")
-        {
-            objRef = DotNetObjectReference.Create(this);
-            var module = await moduleTask.Value;
-            await module.InvokeVoidAsync("initAction", objRef);
         }
 
         [JSInvokable("HandleActionLog")]

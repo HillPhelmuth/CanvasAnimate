@@ -1,0 +1,22 @@
+﻿<SpriteComponent/>
+<div class="container">
+    <div class="row">
+        <div class="col-sm">
+            <h6>Knight</h6>
+            <button class="btn btn-primary" @onclick="@(() => WarriorAnimate("WarAttack1"))">Attack1</button>
+            <button class="btn btn-primary" @onclick="@(() => WarriorAnimate("WarAttack2"))">Attack2</button>
+            <button class="btn btn-primary" @onclick="@(() => WarriorAnimate("WarDead"))">Die</button>
+            <hr />
+            <Canvas @ref="warCanvas" height="@canvasSpecs.H" width="@canvasSpecs.W"></Canvas>
+        </div>
+        <div class="col-sm">
+            <h6>Wizard</h6>
+            <button class="btn btn-primary" @onclick="@(() => WizardAnimate("WizardAttack1"))">Attack1</button>
+            <button class="btn btn-primary" @onclick="@(() => WizardAnimate("WizardAttack2"))">Attack2</button>
+            <button class="btn btn-primary" @onclick="@(() => WizardAnimate("WizardDead"))">Die</button>
+            <hr/>
+            <Canvas @ref="wizardCanvas" height="@canvasSpecs.H" width="@canvasSpecs.W"></Canvas>
+        </div>
+    </div>
+    
+</div>

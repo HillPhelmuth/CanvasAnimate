@@ -14,6 +14,8 @@ namespace CanvasAnimateRCL
         {
             service.AddSingleton(sp => (IJSInProcessRuntime)sp.GetRequiredService<IJSRuntime>());
             service.AddSingleton(sp => (IJSUnmarshalledRuntime)sp.GetRequiredService<IJSRuntime>());
+            service.AddScoped<CanvasAnimateInterop>();
+            service.AddScoped<KnightAnimInterop>();
             return service;
         }
     }

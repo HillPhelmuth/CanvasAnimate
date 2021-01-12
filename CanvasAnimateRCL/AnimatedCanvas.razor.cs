@@ -8,7 +8,7 @@ using Microsoft.JSInterop;
 
 namespace CanvasAnimateRCL
 {
-    public partial class AnimatedCanvas : IAsyncDisposable
+    public partial class AnimatedCanvas : ComponentBase, IAsyncDisposable
     {
         [Inject]
         private IJSRuntime JsRuntime { get; set; }
@@ -23,6 +23,15 @@ namespace CanvasAnimateRCL
             CanvasAnimate.OnLogChange += HandleInteropMessage;
             OnAddLog += HandleInteropMessage;
             return base.OnInitializedAsync();
+        }
+
+        protected override async Task OnAfterRenderAsync(bool firstRender)
+        {
+            if (firstRender)
+            {
+                await CanvasAnimate.Ping();
+                await KnightAnimate.Ping();
+            }
         }
 
         protected async Task InitKnight()
@@ -43,7 +52,7 @@ namespace CanvasAnimateRCL
         private void HandleInteropMessage(string message)
         {
             Logs.Add(message);
-            if (Logs.Count > 200)
+            if (Logs.Count > 50)
                 Logs.RemoveAt(0);
             StateHasChanged();
         }

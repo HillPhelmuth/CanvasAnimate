@@ -1,0 +1,60 @@
+{
+	"frames": [
+
+		{
+			"filename": "IdleWar-0.png",
+			"specs": {
+				"x": 0,
+				"y": 0,
+				"w": 129,
+				"h": 96
+			}
+		},
+		{
+			"filename": "IdleWar-1.png",
+			"specs": {
+				"x": 129,
+				"y": 0,
+				"w": 129,
+				"h": 96
+			}
+		},
+		{
+			"filename": "IdleWar-2.png",
+			"specs": {
+				"x": 258,
+				"y": 0,
+				"w": 129,
+				"h": 96
+			}
+		},
+		{
+			"filename": "IdleWar-3.png",
+			"specs": {
+				"x": 387,
+				"y": 0,
+				"w": 129,
+				"h": 96
+			}
+		},
+		{
+			"filename": "IdleWar-4.png",
+			"specs": {
+				"x": 516,
+				"y": 0,
+				"w": 129,
+				"h": 96
+			}
+		},
+		{
+			"filename": "IdleWar-5.png",
+			"specs": {
+				"x": 645,
+				"y": 0,
+				"w": 129,
+				"h": 96
+			}
+		}
+	],
+  "name": "WarIdle"
+}

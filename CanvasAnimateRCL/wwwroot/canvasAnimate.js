@@ -93,3 +93,7 @@ function moveCharacter(deltaX, deltaY, direction) {
     }
     currentDirection = direction;
 }
+
+export function ping() {
+    console.log("canvasAnimate.js module imported");
+}

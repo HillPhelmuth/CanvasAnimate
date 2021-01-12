@@ -1,0 +1,153 @@
+{
+  "frames": [
+
+    {
+      "filename": "JumpAttack (1).png",
+      "specs": {
+        "x": 0,
+        "y": 0,
+        "w": 59,
+        "h": 71
+      },
+      "sourceSize": {
+        "w": 59,
+        "h": 71
+      }
+    },
+    {
+      "filename": "JumpAttack (2).png",
+      "specs": {
+        "x": 0,
+        "y": 71,
+        "w": 59,
+        "h": 71
+      },
+      "sourceSize": {
+        "w": 59,
+        "h": 71
+      }
+    },
+    {
+      "filename": "JumpAttack (3).png",
+      "specs": {
+        "x": 0,
+        "y": 142,
+        "w": 59,
+        "h": 71
+      },
+      "sourceSize": {
+        "w": 59,
+        "h": 71
+      }
+    },
+    {
+      "filename": "JumpAttack (4).png",
+      "specs": {
+        "x": 0,
+        "y": 213,
+        "w": 59,
+        "h": 71
+      },
+      "sourceSize": {
+        "w": 59,
+        "h": 71
+      }
+    },
+    {
+      "filename": "JumpAttack (5).png",
+      "specs": {
+        "x": 0,
+        "y": 284,
+        "w": 59,
+        "h": 71
+      },
+      "sourceSize": {
+        "w": 59,
+        "h": 71
+      }
+    },
+    {
+      "filename": "JumpAttack (6).png",
+      "specs": {
+        "x": 0,
+        "y": 355,
+        "w": 59,
+        "h": 71
+      },
+      "sourceSize": {
+        "w": 59,
+        "h": 71
+      }
+    },
+    {
+      "filename": "JumpAttack (7).png",
+      "specs": {
+        "x": 0,
+        "y": 426,
+        "w": 59,
+        "h": 71
+      },
+      "sourceSize": {
+        "w": 59,
+        "h": 71
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    {
+      "filename": "JumpAttack (8).png",
+      "specs": {
+        "x": 0,
+        "y": 497,
+        "w": 59,
+        "h": 71
+      },
+      "sourceSize": {
+        "w": 59,
+        "h": 71
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    {
+      "filename": "JumpAttack (9).png",
+      "specs": {
+        "x": 0,
+        "y": 568,
+        "w": 59,
+        "h": 71
+      },
+      "sourceSize": {
+        "w": 59,
+        "h": 71
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    {
+      "filename": "JumpAttack (10).png",
+      "specs": {
+        "x": 0,
+        "y": 639,
+        "w": 59,
+        "h": 71
+      },
+      "sourceSize": {
+        "w": 59,
+        "h": 71
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    }
+  ],
+  "name": "KnightAttack2"
+  
+}

@@ -1,0 +1,40 @@
+{"frames": [
+
+{
+	"filename": "DeadWar-0.png",
+	"specs": {"x":0,"y":0,"w":129,"h":96}
+},
+{
+	"filename": "DeadWar-1.png",
+	"specs": {"x":129,"y":0,"w":129,"h":96}
+},
+{
+	"filename": "DeadWar-2.png",
+	"specs": {"x":258,"y":0,"w":129,"h":96}
+},
+{
+	"filename": "DeadWar-3.png",
+	"specs": {"x":387,"y":0,"w":129,"h":96}
+},
+{
+	"filename": "DeadWar-4.png",
+	"specs": {"x":516,"y":0,"w":129,"h":96}
+},
+{
+	"filename": "DeadWar-5.png",
+	"specs": {"x":645,"y":0,"w":129,"h":96}
+},
+{
+	"filename": "DeadWar-6.png",
+	"specs": {"x":774,"y":0,"w":129,"h":96}
+},
+{
+	"filename": "DeadWar-7.png",
+	"specs": {"x":903,"y":0,"w":129,"h":96}
+},
+{
+	"filename": "DeadWar-8.png",
+	"specs": {"x":1032,"y":0,"w":129,"h":96}
+}],
+"name": "WarDead" 
+}

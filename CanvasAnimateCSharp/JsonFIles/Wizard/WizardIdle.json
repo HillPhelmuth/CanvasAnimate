@@ -1,0 +1,28 @@
+{"frames": [
+
+{
+	"filename": "WizardIdle-0.png",
+	"specs": {"x":0,"y":0,"w":116,"h":95}
+},
+{
+	"filename": "WizardIdle-1.png",
+	"specs": {"x":116,"y":0,"w":116,"h":95}
+},
+{
+	"filename": "WizardIdle-2.png",
+	"specs": {"x":232,"y":0,"w":116,"h":95}
+},
+{
+	"filename": "WizardIdle-3.png",
+	"specs": {"x":348,"y":0,"w":116,"h":95}
+},
+{
+	"filename": "WizardIdle-4.png",
+	"specs": {"x":464,"y":0,"w":116,"h":95}
+},
+{
+	"filename": "WizardIdle-5.png",
+	"specs": {"x":580,"y":0,"w":116,"h":95}
+}],
+"name": "WizardIdle"
+}

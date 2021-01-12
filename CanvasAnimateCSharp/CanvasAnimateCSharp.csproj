@@ -3,49 +3,21 @@
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
   </PropertyGroup>
-
+ 
   <ItemGroup>
-    <Content Remove="JsonFIles\Archer\AttackArcherJson.json" />
-    <Content Remove="JsonFIles\Archer\IdleArcherJson.json" />
-    <Content Remove="JsonFIles\Archer\JumpArcherJson.json" />
-    <Content Remove="JsonFIles\AttackBothJson.json" />
-    <Content Remove="JsonFIles\BigWarrior\AttackWarJson.json" />
-    <Content Remove="JsonFIles\BigWarrior\DeadWarJson.json" />
-    <Content Remove="JsonFIles\BigWarrior\IdleWarJson.json" />
-    <Content Remove="JsonFIles\BombBothJson.json" />
-    <Content Remove="JsonFIles\DeadBothJson.json" />
-    <Content Remove="JsonFIles\Huntress\AttackHuntJson.json" />
-    <Content Remove="JsonFIles\Huntress\DeadHuntJson.json" />
-    <Content Remove="JsonFIles\Huntress\IdleHuntJson.json" />
-    <Content Remove="JsonFIles\IdleBothJson.json" />
-    <Content Remove="JsonFIles\JumpAttackBothJson.json" />
-    <Content Remove="JsonFIles\Mage\AttackMageJson.json" />
-    <Content Remove="JsonFIles\Mage\DeadMageJson.json" />
-    <Content Remove="JsonFIles\Mage\IdleMageJson.json" />
-    <Content Remove="JsonFIles\RunBothJson.json" />
+    <EmbeddedResource Include="JsonFIles\War\WarAttack2.json" />
+    <EmbeddedResource Include="JsonFIles\War\WarAttack1.json" />
+    <EmbeddedResource Include="JsonFIles\War\WarDead.json" />
+    <EmbeddedResource Include="JsonFIles\War\WarIdle.json" />
+    <EmbeddedResource Include="JsonFIles\Overhead\OverheadDown.json" />
+    <EmbeddedResource Include="JsonFIles\Overhead\OverheadLeft.json" />
+    <EmbeddedResource Include="JsonFIles\Overhead\OverheadRight.json" />
+    <EmbeddedResource Include="JsonFIles\Overhead\OverheadUp.json" />
+    <EmbeddedResource Include="JsonFIles\Wizard\WizardAttack1.json" />
+    <EmbeddedResource Include="JsonFIles\Wizard\WizardAttack2.json" />
+    <EmbeddedResource Include="JsonFIles\Wizard\WizardDead.json" />
+    <EmbeddedResource Include="JsonFIles\Wizard\WizardIdle.json" />
   </ItemGroup>
-
-  <ItemGroup>
-    <EmbeddedResource Include="JsonFIles\Archer\AttackArcherJson.json" />
-    <EmbeddedResource Include="JsonFIles\Archer\IdleArcherJson.json" />
-    <EmbeddedResource Include="JsonFIles\Archer\JumpArcherJson.json" />
-    <EmbeddedResource Include="JsonFIles\Knight\AttackBothJson.json" />
-    <EmbeddedResource Include="JsonFIles\BigWarrior\AttackWarJson.json" />
-    <EmbeddedResource Include="JsonFIles\BigWarrior\DeadWarJson.json" />
-    <EmbeddedResource Include="JsonFIles\BigWarrior\IdleWarJson.json" />
-    <EmbeddedResource Include="JsonFIles\Knight\BombBothJson.json" />
-    <EmbeddedResource Include="JsonFIles\Knight\DeadBothJson.json" />
-    <EmbeddedResource Include="JsonFIles\Huntress\AttackHuntJson.json" />
-    <EmbeddedResource Include="JsonFIles\Huntress\DeadHuntJson.json" />
-    <EmbeddedResource Include="JsonFIles\Huntress\IdleHuntJson.json" />
-    <EmbeddedResource Include="JsonFIles\Knight\IdleBothJson.json" />
-    <EmbeddedResource Include="JsonFIles\Knight\JumpAttackBothJson.json" />
-    <EmbeddedResource Include="JsonFIles\Mage\AttackMageJson.json" />
-    <EmbeddedResource Include="JsonFIles\Mage\DeadMageJson.json" />
-    <EmbeddedResource Include="JsonFIles\Mage\IdleMageJson.json" />
-    <EmbeddedResource Include="JsonFIles\Knight\RunBothJson.json" />
-  </ItemGroup>
-
   
   <ItemGroup>
     <SupportedPlatform Include="browser" />
@@ -57,7 +29,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="JsonFIles\Monsters\" />
+    <Folder Include="wwwroot\SpriteSheets\War\" />
+    <Folder Include="wwwroot\SpriteSheets\Ranger\" />
+    <Folder Include="wwwroot\SpriteSheets\overhead\" />
   </ItemGroup>
 
 </Project>
