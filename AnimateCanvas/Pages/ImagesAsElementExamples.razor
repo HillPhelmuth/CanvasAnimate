@@ -1,0 +1,33 @@
+﻿@page "/imageAsElement"
+<h3>Images As Element Examples</h3>
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <h5 class="text-center">Buttons</h5>
+            <p>using background image with label</p>
+            <button class="greyButton" @onclick="@(() => HandleAction("greyButton clicked"))" @onmouseover="@(() => HandleAction("greyButton hover"))">with label</button>
+            <p>small button image using background-contain</p>
+            <button class="smallButton" @onclick="@(() => HandleAction("smallButton clicked"))" @onmouseover="@(() => HandleAction("smallButton hover"))"></button>
+            <p>button using inline img tag</p>
+            <button class="inlineButton" @onclick="@(() => HandleAction("inlineButton clicked"))" @onmouseover="@(() => HandleAction("inlineButton hover"))"><img src="images/icons/128/axeDouble2.png" alt="image not loaded"/></button>
+        </div>
+       
+    </div>
+    <hr />
+    <div class="row">
+        <div class="col">
+            <h5>Log</h5>
+            <div class="logContainer">
+                <ol>
+                    @foreach (var log in actionLog)
+                    {
+                        <li>@log</li>
+                    }
+                </ol>
+            </div>
+        </div>
+    </div>
+</div>
+@code {
+
+}

@@ -1,0 +1,46 @@
+﻿.greyButton {
+    background: url('images/elements/buttonLong_grey.png') no-repeat center;
+    height: 49px;
+    width: 190px;
+    font-weight: 600
+}
+
+    .greyButton::selection {
+        background: url('images/elements/buttonLong_grey_pressed.png') no-repeat center;
+    }
+
+    .greyButton:hover {
+        background-color: lightblue
+    }
+
+.smallButton {
+    background: url('images/elements/buttonSquare_blue.png') no-repeat;
+    width: 45px;
+    height: 49px;
+    background-size: contain;
+    border: solid 1px blue;
+    display: block;
+}
+
+    .smallButton::selection {
+        background: url('images/elements/buttonSquare_blue_pressed.png') no-repeat;
+    }
+
+    .smallButton:hover {
+       border: solid 5px red;
+    }
+
+.inlineButton {
+    background-color: white;
+}
+
+    .inlineButton:hover {
+        background-color: lightgreen;
+    }
+
+.logContainer {
+    width: 100%;
+    max-height: 300px;
+    min-height: 100px;
+    overflow-x: scroll;
+}
