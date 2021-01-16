@@ -24,15 +24,22 @@ namespace CanvasAnimateCSharp
         private Canvas canvas;
         private Context2D context;
         private Timer timer;
+        private int TimerInterval => 1000 / Fps;
         private readonly List<string> Logs = new();
         [Parameter]
         public AnimationModel Anim { get; set; } = new() { Scale = 3, MoveSpeed = 4 };
         [Parameter]
         public CanvasSpecs CanvasSpecs { get; set; } = new(600, 800);
 
+        [Parameter]
+        public int Fps { get; set; } = 10;
+
+        [Parameter] 
+        public Dictionary<string, SpriteDataModel> SpriteSet { get; set; } = SpriteSets.OverheadSprites;
+
         protected override Task OnInitializedAsync()
         {
-            Anim.AllSprites = SpriteSets.OverheadSprites;
+            Anim.AllSprites = SpriteSet;
             Anim.CurrentSprite = Anim.AllSprites["Right"];
             return base.OnInitializedAsync();
         }
@@ -41,8 +48,9 @@ namespace CanvasAnimateCSharp
         {
             if (firstRender)
             {
+                
                 context = await canvas.GetContext2DAsync();
-                timer = new Timer(100);
+                timer = new Timer(TimerInterval);
                 InitOverhead();
                 timer.Elapsed += HandleAnimationLoop;
                 module = await Js.InvokeAsync<IJSObjectReference>("import",

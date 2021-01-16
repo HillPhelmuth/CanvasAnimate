@@ -1,22 +1,57 @@
 ﻿@page "/imageAsElement"
-<h3>Images As Element Examples</h3>
+
+<h2 class="text-center">Images As Element Examples</h2>
 <div class="container">
     <div class="row">
-        <div class="col">
-            <h5 class="text-center">Buttons</h5>
-            <p>using background image with label</p>
-            <button class="greyButton" @onclick="@(() => HandleAction("greyButton clicked"))" @onmouseover="@(() => HandleAction("greyButton hover"))">with label</button>
-            <p>small button image using background-contain</p>
-            <button class="smallButton" @onclick="@(() => HandleAction("smallButton clicked"))" @onmouseover="@(() => HandleAction("smallButton hover"))"></button>
-            <p>button using inline img tag</p>
-            <button class="inlineButton" @onclick="@(() => HandleAction("inlineButton clicked"))" @onmouseover="@(() => HandleAction("inlineButton hover"))"><img src="images/icons/128/axeDouble2.png" alt="image not loaded"/></button>
+        <div class="col" style="cursor:url('images/elements/cursorGauntlet_bronze.png') auto">
+            <h3 class="text-center">Buttons</h3>
+            <h4 class="text-center">Different image when clicked</h4>
+            <p>large button</p>
+            @foreach (var colorKvp in largeColor)
+            {
+                <button class="largeButton" @onmousedown="@(() => HandleMouseDownLg(colorKvp.Key))" @onmouseup="@(() => HandleMouseUpLg(colorKvp.Key))" @onclick="@(() => HandleAction($"{colorKvp.Key} largeButton clicked"))">
+                    <img src="@($"images/elements/buttonLong_{colorKvp.Value}.png")" alt="Fuck, the src didn't load" />
+                </button>
+            }
+            <p>small square</p>
+            @foreach (var colorKvp in smallSquare)
+            {
+                <button class="smallButton" @onmousedown="@(() => HandleMouseDownSm(colorKvp.Key))" @onmouseup="@(() => HandleMouseUpSm(colorKvp.Key))" @onclick="@(() => HandleAction($"{colorKvp.Key} smallButton clicked"))">
+                    <img src="@($"images/elements/buttonSquare_{colorKvp.Value}.png")" alt="Fuck, the src didn't load" />
+                </button>
+            }
+            <p>small round</p>
+            @foreach (var colorKvp in smallRound)
+            {
+                <button class="smallButton round" @onmousedown="@(() => ChangeColor(colorKvp.Key))" @onclick="@(() => HandleAction($"{colorKvp.Value} roundButton clicked"))">
+                    <img src="@($"images/elements/buttonRound_{colorKvp.Value}.png")" alt="Fuck, the src didn't load" />
+                </button>
+            }
+
         </div>
-       
+        <div class="col">
+            <h3 class="text-center">Input</h3>
+            <p>text input</p>
+            <div class="text-container">
+                <input @bind-value="inputText" @bind-value:event="oninput" @onchange="@(() => HandleAction(inputText))" />
+            </div><br />
+            <p>checkbox</p>
+            <input id="ckbx1" type="checkbox" @bind-value="inputChecked" />
+            <label class="chk-label" for="ckbx1"><span>@(inputChecked ? "This checkbox is checked...":"This checkbox is NOT checked...yet")</span></label><br />
+            <p>radio buttons</p>
+            <div class="radio-list">
+                @foreach (var radButton in radioButtons)
+                {
+                    <input id="@radButton" @onchange="RadioButtonSelect" value="@radButton" type="radio" checked="@selectedRadio.Equals(radButton, StringComparison.OrdinalIgnoreCase)" />
+                    <label class="rad-label" for="@radButton"><span>@radButton</span></label>
+                }
+            </div>
+        </div>
     </div>
     <hr />
     <div class="row">
-        <div class="col">
-            <h5>Log</h5>
+        <div class="col hand">
+            <h5>Event Log w/ border images </h5>
             <div class="logContainer">
                 <ol>
                     @foreach (var log in actionLog)
@@ -28,6 +63,5 @@
         </div>
     </div>
 </div>
-@code {
 
-}
+
