@@ -13,6 +13,7 @@
   <ItemGroup>
     <ProjectReference Include="..\CanvasAnimateCSharp\CanvasAnimateCSharp.csproj" />
     <ProjectReference Include="..\CanvasAnimateRCL\CanvasAnimateRCL.csproj" />
+    <ProjectReference Include="..\RpgComponents\RpgComponents.csproj" />
   </ItemGroup>
 
 </Project>

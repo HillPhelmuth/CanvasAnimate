@@ -30,7 +30,6 @@ namespace CanvasAnimateCSharp
         public AnimationModel Anim { get; set; } = new() { Scale = 3, MoveSpeed = 4 };
         [Parameter]
         public CanvasSpecs CanvasSpecs { get; set; } = new(600, 800);
-
         [Parameter]
         public int Fps { get; set; } = 10;
 

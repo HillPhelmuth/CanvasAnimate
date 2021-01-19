@@ -9,7 +9,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CanvasAnimateRCL", "CanvasA
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CanvasAnimateCSharp", "CanvasAnimateCSharp\CanvasAnimateCSharp.csproj", "{BAFF83C8-4D2A-44A7-85B4-28A167214061}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RpgComponents", "RpgComponents\RpgComponents.csproj", "{35F49316-FC6D-42F2-8813-A0CC8747493D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RpgComponents", "RpgComponents\RpgComponents.csproj", "{35F49316-FC6D-42F2-8813-A0CC8747493D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

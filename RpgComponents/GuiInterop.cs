@@ -11,22 +11,31 @@ namespace RpgComponents
     // This class can be registered as scoped DI service and then injected into Blazor
     // components for use.
 
-    public class ExampleJsInterop : IAsyncDisposable
+    public class GuiInterop : IAsyncDisposable
     {
         private readonly Lazy<Task<IJSObjectReference>> moduleTask;
 
-        public ExampleJsInterop(IJSRuntime jsRuntime)
+        public GuiInterop(IJSRuntime jsRuntime)
         {
             moduleTask = new(() => jsRuntime.InvokeAsync<IJSObjectReference>(
-               "import", "./_content/RpgComponents/exampleJsInterop.js").AsTask());
+               "import", "./_content/RpgComponents/rpgui.js").AsTask());
         }
 
-        public async ValueTask<string> Prompt(string message)
+        public async ValueTask InitGui()
         {
             var module = await moduleTask.Value;
-            return await module.InvokeAsync<string>("showPrompt", message);
+            await module.InvokeVoidAsync("initGui");
         }
-
+        public async ValueTask CreateList(string elementId)
+        {
+            var module = await moduleTask.Value;
+            await module.InvokeVoidAsync("createDynamicList", elementId);
+        }
+        public async ValueTask<string> GetJavascriptObjectString()
+        {
+            var module = await moduleTask.Value;
+            return await module.InvokeAsync<string>("getGuiJsObject");
+        }
         public async ValueTask DisposeAsync()
         {
             if (moduleTask.IsValueCreated)
