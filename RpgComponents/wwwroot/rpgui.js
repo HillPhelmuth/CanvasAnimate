@@ -492,6 +492,7 @@ function addDropDown() {
 
             // add the new option as list item
             var item = RPGUI.create_element("li");
+            RPGUI.add_class(item, "item");
             item.innerHTML = option.innerHTML;
             list.appendChild(item);
 

@@ -5,6 +5,14 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Content Remove="wwwroot\css\styleTest.css" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\css\styleTest.css" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly" Version="5.0.1" />
     <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer" Version="5.0.1" PrivateAssets="all" />
     <PackageReference Include="System.Net.Http.Json" Version="5.0.0" />
@@ -14,6 +22,10 @@
     <ProjectReference Include="..\CanvasAnimateCSharp\CanvasAnimateCSharp.csproj" />
     <ProjectReference Include="..\CanvasAnimateRCL\CanvasAnimateRCL.csproj" />
     <ProjectReference Include="..\RpgComponents\RpgComponents.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="wwwroot\css\_content\" />
   </ItemGroup>
 
 </Project>

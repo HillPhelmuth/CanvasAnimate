@@ -4,6 +4,14 @@
     <TargetFramework>net5.0</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Content Remove="wwwroot\styleTest.css" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\styleTest.css" />
+  </ItemGroup>
+
   
   <ItemGroup>
     <SupportedPlatform Include="browser" />

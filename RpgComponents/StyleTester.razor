@@ -63,10 +63,10 @@
     <div class="rpgui-container framed rpgui-draggable" style="left:560px">
         <h1>Drop & List</h1>
         <hr />
-
+        <h2>@className</h2>
         <p>RPGUI dropdown</p>
         <label>Select class:</label>
-        <select class="rpgui-dropdown">
+        <select @bind="className" class="rpgui-dropdown">
             <option value="Warrior" selected>Warrior</option>
             <option value="Mage">Mage</option>
             <option value="Rogue">Rogue</option>
@@ -123,11 +123,12 @@
         <div class="rpgui-icon empty-slot"></div>
         <br /><br />
     </div>
-    <div class="rpgui-container framed-golden" style="left: 1120px; max-height: 560px; width:500px">
+    <div class="rpgui-container framed-golden" style="left:560px;top:540px; max-height: 560px; width:500px">
         <label>Javascript Object string</label>
         <button class="rpgui-button" type="button" style="width:100%" @onclick="GetJsObjectString"><p>Generate Object</p></button><br />
         <button class="rpgui-button golden" type="button" style="width:100%" @onclick="ReLoadList"><p>Convert again</p></button><br />
-        <select class="rpgui-list-imp" id="background-select2" size="8">
+        <h2>@guiJsObject</h2>
+        <select @bind="@guiJsObject" class="rpgui-list-imp" id="background-select2" size="8">
             <option value="empty">Empty</option>
             @foreach (var item in guiJsObjects)
             {

@@ -471,7 +471,7 @@ ul.rpgui-dropdown-imp {
     padding-bottom: 6px;
     padding-left: 6px;
     /* background */
-    background: url("_content/RpgComponents/img/select-background-image.png") repeat repeat;
+    background: url("img/select-background-image.png") repeat repeat;
     background-clip: padding-box;
     background-origin: padding-box;
     background-position: center;
@@ -488,7 +488,7 @@ ul.rpgui-dropdown-imp {
     padding-bottom: 6px;
     padding-left: 6px;
     /* background */
-    background: url("_content/RpgComponents/img/select-background-image.png") repeat repeat;
+    background: url("img/select-background-image.png") repeat repeat;
     background-clip: padding-box;
     background-origin: padding-box;
     background-position: center;

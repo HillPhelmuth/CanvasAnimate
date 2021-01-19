@@ -14,7 +14,8 @@ namespace RpgComponents
         private IJSRuntime jsRuntime { get; set; }
         private GuiInterop gui => new(jsRuntime);
         private List<string> guiJsObjects = new();
-        //private string guiJsObject;
+        private string guiJsObject;
+        private string className;
         protected override async Task OnAfterRenderAsync(bool firstRender)
         {
             if (firstRender)
