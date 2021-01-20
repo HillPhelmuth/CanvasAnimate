@@ -1,4 +1,5 @@
 ﻿@page "/styleTester"
+@layout RpgBaseLayout
 <style>
 
     .rpgui-container {
@@ -35,7 +36,7 @@
     </div>
 
     <!-- Buttons, radio and checkbox -->
-    <div class="rpgui-container framed rpgui-draggable" style="left: 280px; top:540px">
+    <div  class="rpgui-container framed rpgui-draggable" style="left: 280px; top:540px">
         <h1>Buttons</h1>
         <hr />
 
@@ -54,8 +55,11 @@
             <input class="rpgui-radio" type="radio" name="sex" value="female"><label>Female</label>
         </form>
         <hr />
-        <input class="rpgui-checkbox" type="checkbox" checked><label>Checkbox 1.</label>
-        <input class="rpgui-checkbox" type="checkbox"><label>Checkbox 2.</label>
+        <form action="">
+            <input class="rpgui-checkbox" checked type="checkbox"><label id="checkbox-label-1">Checkbox1</label>
+            <br />
+            <input class="rpgui-checkbox" type="checkbox"><label id="checkbox-label-2">CheckBox2</label>
+        </form>
         
     </div>
 
@@ -123,7 +127,7 @@
         <div class="rpgui-icon empty-slot"></div>
         <br /><br />
     </div>
-    <div class="rpgui-container framed-golden" style="left:560px;top:540px; max-height: 560px; width:500px">
+    <div class="rpgui-container framed-golden rpgui-draggable" style="left:560px;top:540px; max-height: 560px; width:500px">
         <label>Javascript Object string</label>
         <button class="rpgui-button" type="button" style="width:100%" @onclick="GetJsObjectString"><p>Generate Object</p></button><br />
         <button class="rpgui-button golden" type="button" style="width:100%" @onclick="ReLoadList"><p>Convert again</p></button><br />
@@ -155,7 +159,17 @@
         <label>Stamina:</label>
         <div id="stamina-bar" data-value="0.2" class="rpgui-progress green"></div>
     </div>
-
+    <div class="rpgui-container framed rpgui-draggable" style="position:relative">
+        <h1>Custom Buttons</h1>
+        <hr />
+        <h2>@buttonInput</h2>
+        <br />
+        <RpgButton OnClick="@(() => buttonInput = "Button 1 clicked")" Label="Button 1" RpgButtonStyle="RpgButtonStyle.Standard" />
+        <hr />
+        <RpgButton OnClick="@(() => buttonInput = "Button golden clicked")" Label="Button golden" RpgButtonStyle="RpgButtonStyle.Golden" />
+        <hr />
+        <RpgButton OnClick="@(() => buttonInput = "Button silver clicked")" Label="Button 1" RpgButtonStyle="RpgButtonStyle.Silver" />
+    </div>
     <!-- some other frames -->
     <div class="rpgui-container framed-golden rpgui-draggable" style="width:180px; height:180px; right:0px; top:640px;">
         <p>This is a golden frame.</p>

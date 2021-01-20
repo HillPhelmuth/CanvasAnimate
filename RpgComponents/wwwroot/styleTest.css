@@ -227,7 +227,7 @@ inside your html file.
     left: 250px;
     top: 0px;
     position: fixed;
-    overflow: hidden;
+    overflow: scroll;
     font-size: 0.9em;
 }
 

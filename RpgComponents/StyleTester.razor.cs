@@ -16,6 +16,7 @@ namespace RpgComponents
         private List<string> guiJsObjects = new();
         private string guiJsObject;
         private string className;
+        private string buttonInput;
         protected override async Task OnAfterRenderAsync(bool firstRender)
         {
             if (firstRender)
