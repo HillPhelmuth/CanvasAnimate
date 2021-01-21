@@ -1,15 +1,20 @@
 
 var RPGUI = window.RPGUI || {};
 let checkboxCount = 0;
+let _update_funcs = {};
+let _create_funcs = {};
+let _get_funcs = {}
+let _set_funcs = {};
+let _init_list = [];
 export function initGui() {
 
     dispatchEvent(new Event('load'));
 
-    console.log("RPGUI was initilized as\r\n" + Object.values(RPGUI.__init_list) + "\r\n,And also functions created:\r\n" + Object.keys(RPGUI.__create_funcs) + "\r\n,Functions set:\r\n" + Object.keys(RPGUI.__set_funcs) + "," + Object.values(RPGUI.__set_funcs) + "\r\n,Functions get:\r\n" + Object.keys(RPGUI.__get_funcs) + "\r\n,Functions update:\r\n" + Object.keys(RPGUI.__update_funcs));
+    console.log("RPGUI was initilized with\r\n" + Object.keys(_init_list) + "\r\ninit Funcs:\r\n" + Object.values(_init_list) + "\r\nComponents created:\r\n" + Object.keys(_create_funcs) + "\r\n Create Component Funcs:\r\n" + Object.values(_create_funcs) + "\r\nComponents set:\r\n" + Object.keys(_set_funcs) + "\r\nComponent set Funcs\r\n" + Object.values(_set_funcs) + "\r\nFunctions get:\r\n" + Object.keys(_get_funcs) + "\r\nget VALUES:\r\n" + Object.values(_get_funcs));
 
 }
 export function getGuiJsObject() {
-    return "RPGUI was initilized as\r\n" + Object.values(RPGUI.__init_list) + "\r\n,And also functions created:\r\n" + Object.keys(RPGUI.__create_funcs) + "\r\n,Functions set:\r\n" + Object.keys(RPGUI.__set_funcs) + "," + Object.values(RPGUI.__set_funcs) + "\r\n,Functions get:\r\n" + Object.keys(RPGUI.__get_funcs) + "\r\n,Functions update:\r\n" + Object.keys(RPGUI.__update_funcs);
+    return "RPGUI was initilized as\r\n" + Object.keys(_init_list) + "\r\nfunctions created:\r\n" + Object.keys(_create_funcs) + "\r\n,Functions set:\r\n" + Object.keys(_set_funcs) + "\r\n,Functions get:\r\n" + Object.keys(_get_funcs) + "\r\n,Functions update:\r\n" + Object.keys(_update_funcs);
 }
 export function createDynamicList(elemId) {
     const element = document.getElementById(elemId);
@@ -17,14 +22,6 @@ export function createDynamicList(elemId) {
 }
 
 RPGUI = (function () {
-
-    /**
-    * init rpgui.
-    * this is the first file included in the compiled js.
-    */
-
-    // rpgui global namespace
-
 
     // lib version
     RPGUI.version = 1.03;
@@ -42,14 +39,11 @@ RPGUI = (function () {
     // init RPGUI and everything related
     RPGUI.init = function () {
         if (RPGUI._was_init) { throw "RPGUI was already init!"; }
-        for (let i = 0; i < RPGUI.__init_list.length; ++i) {
-            RPGUI.__init_list[i]();
+        for (let i = 0; i < _init_list.length; ++i) {
+            _init_list[i]();
         }
         RPGUI._was_init = true;
     }
-
-    // list of functions to run as part of the init process
-    RPGUI.__init_list = [];
 
     // add a function to be called as part of the init process.
     // note: order is preserve. you may use this function to init things after RPGUI is fully loaded, since
@@ -59,32 +53,24 @@ RPGUI = (function () {
         if (RPGUI._was_init) { callback(); }
 
         // add to init list
-        RPGUI.__init_list.push(callback);
+        _init_list.push(callback);
         console.log("RPGUI.on_load " + JSON.stringify(callback));
     }
     /**
     * Used to provide unified, easy javascript access to customized elements.
     */
 
-
-    // different callbacks for different methods and types
-    RPGUI.__update_funcs = {};
-    RPGUI.__create_funcs = {};
-    RPGUI.__get_funcs = {}
-    RPGUI.__set_funcs = {};
-
-    // create a customized rpgui element ("list", "dropbox", etc.)
     // note: this function expect the original html element.
     RPGUI.create = function (element, rpgui_type) {
         // call the creation func and set type
-        if (RPGUI.__create_funcs[rpgui_type]) {
+        if (_create_funcs[rpgui_type]) {
             element.dataset['rpguitype'] = rpgui_type;
-            RPGUI.__create_funcs[rpgui_type](element);
+            _create_funcs[rpgui_type](element);
 
         }
         // not a valid type? exception.
         else {
-            throw "Not a valid rpgui type! options: " + Object.keys(RPGUI.__create_funcs);
+            throw "Not a valid rpgui type! options: " + Object.keys(_create_funcs);
         }
         console.log("RPGUI.create");
     }
@@ -94,12 +80,12 @@ RPGUI = (function () {
     RPGUI.update = function (element) {
         // if have update callback for this type, use it
         const type = element.dataset['rpguitype'];
-        if (RPGUI.__update_funcs[type]) {
-            RPGUI.__update_funcs[type](element);
+        if (_update_funcs[type]) {
+            _update_funcs[type](element);
         }
         // if not, use the default (firing update event)
         else {
-            RPGUI.fire_event(element, "change");
+            fireEvent(element, "change");
         }
         console.log("RPGUI.update");
     }
@@ -110,8 +96,8 @@ RPGUI = (function () {
     RPGUI.set_value = function (element, value) {
         // if have set value callback for this type, use it
         const type = element.dataset['rpguitype'];
-        if (RPGUI.__set_funcs[type]) {
-            RPGUI.__set_funcs[type](element, value);
+        if (_set_funcs[type]) {
+            _set_funcs[type](element, value);
         }
         // if not, use the default (setting "value" member)
         else {
@@ -123,16 +109,14 @@ RPGUI = (function () {
         console.log("RPGUI.set_value");
     }
 
-
-
     // get the value of an element.
     // note: this function expect the original html element.
     RPGUI.get_value = function (element) {
         // if have get value callback for this type, use it
         console.log("RPGUI.get_value");
         const type = element.dataset['rpguitype'];
-        if (RPGUI.__get_funcs[type]) {
-            return RPGUI.__get_funcs[type](element);
+        if (_get_funcs[type]) {
+            return _get_funcs[type](element);
         }
         // if not, use the default (getting the "value" member)
         else {
@@ -162,55 +146,21 @@ RPGUI = (function () {
             const content = contents[i];
 
             // prevent dragging
-            RPGUI.prevent_drag(content);
+            // RPGUI.prevent_drag(content);
 
             // set default cursor
             RPGUI.set_cursor(content, "default");
         }
     });
 
-    /**
-    * This script add the dragging functionality to all elements with "rpgui-draggable" class.
-    */
-
-
     // element currently dragged
     addDragDrop();
-
-    /**
-     * This script generate the rpgui progress-bar class.
-     * This will replace automatically every <div> element that has the "rpgui-progress" class.
-     */
-
-
     // class name we will convert to special progress
     addProgress();
-
-    /**
-    * This script generate the rpgui radio class.
-    * This will replace automatically every <input> element that has the "rpgui-radio" class.
-    */
-
-
     // class name we will convert to special radio
     addRadio();
-
-    /**
-    * This script generate the rpgui dropdown <select>.
-    * This will replace automatically every <select> element that has the "rpgui-dropdown" class.
-    */
     addDropDown();
-
-    /**
-    * This script generate the rpgui list <select>.
-    * This will replace automatically every <select> element that has the "rpgui-list" class.
-    */
     addList();
-
-    /**
-    * This script generate the rpgui slider class.
-    * This will replace automatically every <input> element that has the "rpgui-slider" class.
-    */
     addSlider();
     /**
     * Some helpers and utils.
@@ -219,123 +169,147 @@ RPGUI = (function () {
 
     // create and return html element for rpgui internal mechanisms
     // element is string, element type (like "div" or "p")
-    RPGUI.create_element = function (element) {
-        // create element
-        element = document.createElement(element);
-
-        // return element
-        return element;
-    };
+    createElement();
 
     // set cursor for given element
     // element is element to set.
     // cursor is string, what cursor to use (default / point / .. see cursor.css for more info ).
     RPGUI.set_cursor = function (element, cursor) {
-        RPGUI.add_class(element, "rpgui-cursor-" + cursor);
+        addClass(element, "rpgui-cursor-" + cursor);
     };
 
-    // prevent element dragging
-    RPGUI.prevent_drag = function (element) {
-        /*
-        // this code was removed because I found a cross-browser way to cover it all via css.
-        element.draggable=false;
-        element.ondrop=function(){return false;}
-        element.ondragstart=function(){return false;}
-        */
-    };
+
 
     // copy the style of one element into another
-    RPGUI.copy_css = function (from, to) {
-        to.style.cssText = from.style.cssText;
-    };
+    //copyCss = function (from, to) {
+    //    to.style.cssText = from.style.cssText;
+    //};
 
     // check if element have class
-    RPGUI.has_class = function (element, cls) {
-        return (' ' + element.className + ' ').indexOf(' ' + cls + ' ') > -1;
-    };
+    //hasClass = function (element, cls) {
+    //    return (' ' + element.className + ' ').indexOf(' ' + cls + ' ') > -1;
+    //};
 
     // add class to element (but only if don't already have it)
-    RPGUI.add_class = function (element, cls) {
-        if (!RPGUI.has_class(element, cls)) {
-            element.className += " " + cls;
-        }
-    };
+    //addClass();
 
     // get child element with classname
-    RPGUI.get_child_with_class = function (elem, cls) {
-        for (let i = 0; i < elem.childNodes.length; i++) {
-            if (RPGUI.has_class(elem.childNodes[i], cls)) {
-                return elem.childNodes[i];
-            }
-        }
-    };
+    //getChildWithClass();
 
     // remove a class from an element
-    RPGUI.remove_class = function (element, cls) {
-        element.className = (' ' + element.className + ' ').replace(cls, "");
-        element.className = element.className.substring(1, element.className.length - 1);
-    };
+    //removeClass = function (element, cls) {
+    //    element.className = (' ' + element.className + ' ').replace(cls, "");
+    //    element.className = element.className.substring(1, element.className.length - 1);
+    //};
 
     // fire event from element
     // type should be string like "change", "click", "mouseup", etc.
-    RPGUI.fire_event = function (element, type) {
-        // firing the event properly according to StackOverflow
-        // http://stackoverflow.com/questions/2856513/how-can-i-trigger-an-onchange-event-manually
-        if ("createEvent" in document) {
-            const evt = document.createEvent("HTMLEvents");
-            evt.initEvent(type, false, true);
-            element.dispatchEvent(evt);
-        }
-        else {
-            element.fireEvent("on" + type);
-        }
-    };
+    //fireEvent();
 
     // copy all event listeners from one element to the other
-    RPGUI.copy_event_listeners = function (from, to) {
-        // copy all event listeners
-        if (typeof getEventListeners == "function") {
-            const events = getEventListeners(from);
-            for (var p in events) {
+    //copyEventListeners();
+
+    // insert one html element after another given element
+    //insertAfter = function (to_insert, after_element) {
+    //    after_element.parentNode.insertBefore(to_insert, after_element.nextSibling);
+    //};
+    return RPGUI;
+})();
+function removeClass(element, cls) {
+    element.className = (' ' + element.className + ' ').replace(cls, "");
+    element.className = element.className.substring(1, element.className.length - 1);
+}
+function getChildWithClass(elem, cls) {
+    //getChildWithClass = function(elem, cls) {
+    for (let i = 0; i < elem.childNodes.length; i++) {
+        if (hasClass(elem.childNodes[i], cls)) {
+            return elem.childNodes[i];
+        }
+    }
+    //};
+}
+function hasClass(element, cls) {
+    return (' ' + element.className + ' ').indexOf(' ' + cls + ' ') > -1;
+}
+function addClass(element, cls) {
+    //addClass = function(element, cls) {
+    if (!hasClass(element, cls)) {
+        element.className += " " + cls;
+    }
+    //};
+}
+function insertAfter(to_insert, after_element) {
+    after_element.parentNode.insertBefore(to_insert, after_element.nextSibling);
+}
+function fireEvent(element, type) {
+    //fireEvent = function(element, type) {
+    // firing the event properly according to StackOverflow
+    // http://stackoverflow.com/questions/2856513/how-can-i-trigger-an-onchange-event-manually
+    if ("createEvent" in document) {
+        const evt = document.createEvent("HTMLEvents");
+        evt.initEvent(type, false, true);
+        element.dispatchEvent(evt);
+    }
+    else {
+        element.fireEvent("on" + type);
+    }
+    //};
+}
+
+function createElement(elemTag) {
+    //RPGUI.createElement = function(element) {
+    // create element
+    let element = document.createElement(elemTag);
+    // return element
+    return element;
+    //};
+}
+function copyCss(from, to) {
+    to.style.cssText = from.style.cssText;
+}
+function copyEventListeners(from, to) {
+    // copyEventListeners = function(from, to) {
+    // copy all event listeners
+    if (typeof getEventListeners == "function") {
+        const events = getEventListeners(from);
+        for (var p in events) {
+            if (Object.prototype.hasOwnProperty.call(events, p)) {
                 events[p].forEach(function (ev) {
                     // {listener: Function, useCapture: Boolean}
                     to.addEventListener(p, ev.listener, ev.useCapture);
                 });
             }
         }
+    }
 
-        // now copy all attributes that start with "on"
-        for (let attr in from.attributes) {
+    // now copy all attributes that start with "on"
+    for (let attr in from.attributes) {
+        if (Object.prototype.hasOwnProperty.call(from.attributes, attr)) {
             if (attr.indexOf("on") === 0) {
                 to[attr] = from[attr];
             }
         }
-    };
-
-    // insert one html element after another given element
-    RPGUI.insert_after = function (to_insert, after_element) {
-        after_element.parentNode.insertBefore(to_insert, after_element.nextSibling);
-    };
-    return RPGUI;
-})();
+    }
+    //};
+}
 
 function addCheckbox() {
     var _checkbox_class = "rpgui-checkbox";
 
     // create a rpgui-checkbox from a given element.
     // note: element must be <input> of type "checkbox" for this to work properly.
-    RPGUI.__create_funcs["checkbox"] = function (element) {
-        RPGUI.add_class(element, _checkbox_class);
+    _create_funcs["checkbox"] = function (element) {
+        addClass(element, _checkbox_class);
         create_checkbox(element);
     };
 
     // set function to set value of the checkbox
-    RPGUI.__set_funcs["checkbox"] = function (elem, value) {
+    _set_funcs["checkbox"] = function (elem, value) {
         elem.checked = value;
     };
 
     // set function to get value of the checkbox
-    RPGUI.__get_funcs["checkbox"] = function (elem) {
+    _get_funcs["checkbox"] = function (elem) {
         return elem.checked;
     };
 
@@ -349,14 +323,14 @@ function addCheckbox() {
             RPGUI.create(elems[i], "checkbox");
         }
     });
-    
+
     // upgrade a single "input" element to the beautiful checkbox class
     function create_checkbox(elem) {
         // get next sibling, assuming its the checkbox label.
         // this object will be turned into the new checkbox.
         checkboxCount = checkboxCount + 1;
         const new_checkbox = document.getElementById("checkbox-label-" + checkboxCount);
-       
+
         // validate
         if (!new_checkbox || new_checkbox.tagName !== "LABEL") {
             console.log("After a '" + _checkbox_class + "' there must be a label!");
@@ -365,7 +339,7 @@ function addCheckbox() {
         }
 
         // copy all event listeners and events
-        RPGUI.copy_event_listeners(elem, new_checkbox);
+        copyEventListeners(elem, new_checkbox);
 
         // do the click event for the new checkbox
         (function (elem, new_checkbox) {
@@ -384,18 +358,18 @@ function addRadio() {
 
     // create a rpgui-radio from a given element.
     // note: element must be <input> of type "radio" for this to work properly.
-    RPGUI.__create_funcs["radio"] = function (element) {
-        RPGUI.add_class(element, _radio_class);
+    _create_funcs["radio"] = function (element) {
+        addClass(element, _radio_class);
         create_radio(element);
     };
 
     // set function to set value of the radio
-    RPGUI.__set_funcs["radio"] = function (elem, value) {
+    _set_funcs["radio"] = function (elem, value) {
         elem.checked = value;
     };
 
     // set function to get value of the radio button
-    RPGUI.__get_funcs["radio"] = function (elem) {
+    _get_funcs["radio"] = function (elem) {
         return elem.checked;
     };
 
@@ -422,7 +396,7 @@ function addRadio() {
         }
 
         // copy all event listeners and events
-        RPGUI.copy_event_listeners(elem, new_radio);
+        copyEventListeners(elem, new_radio);
 
         // do the click event for the new radio
         (function (elem, new_radio) {
@@ -440,8 +414,8 @@ function addDropDown() {
 
     // create a rpgui-dropdown from a given element.
     // note: element must be <select> with <option> tags that will turn into the items
-    RPGUI.__create_funcs["dropdown"] = function (element) {
-        RPGUI.add_class(element, _dropdown_class);
+    _create_funcs["dropdown"] = function (element) {
+        addClass(element, _dropdown_class);
         create_dropdown(element);
     };
 
@@ -462,16 +436,16 @@ function addDropDown() {
         var arrow_down_prefix = "<label>&#9660;</label> ";
 
         // create the paragraph that will display the select_header option
-        const select_header = RPGUI.create_element("p");
+        const select_header = createElement("p");
         if (elem.id) { select_header.id = elem.id + "-rpgui-dropdown-head"; };
-        RPGUI.add_class(select_header, "rpgui-dropdown-imp rpgui-dropdown-imp-header");
-        RPGUI.insert_after(select_header, elem);
+        addClass(select_header, "rpgui-dropdown-imp rpgui-dropdown-imp-header");
+        insertAfter(select_header, elem);
 
         // create the list to hold all the options
-        const list = RPGUI.create_element("ul");
+        const list = createElement("ul");
         if (elem.id) { list.id = elem.id + "-rpgui-dropdown"; };
-        RPGUI.add_class(list, "rpgui-dropdown-imp");
-        RPGUI.insert_after(list, select_header);
+        addClass(list, "rpgui-dropdown-imp");
+        insertAfter(list, select_header);
 
         // set list top to be right under the select header
         const header_rect = select_header.getBoundingClientRect();
@@ -492,13 +466,13 @@ function addDropDown() {
                 continue;
 
             // add the new option as list item
-            const item = RPGUI.create_element("li");
-            RPGUI.add_class(item, "item");
+            const item = createElement("li");
+            addClass(item, "item");
             item.innerHTML = option.innerHTML;
             list.appendChild(item);
 
             // copy all event listeners from original option to the new item
-            RPGUI.copy_event_listeners(option, item);
+            copyEventListeners(option, item);
 
             // set option callback (note: wrapped inside namespace to preserve vars)
             (function (elem, option, item, select_header, list) {
@@ -510,7 +484,7 @@ function addDropDown() {
 
                     // select the option in the original selection
                     option.selected = true;
-                    RPGUI.fire_event(elem, "change");
+                    fireEvent(elem, "change");
                 });
 
             })(elem, option, item, select_header, list);
@@ -561,8 +535,8 @@ function addList() {
 
     // create a rpgui-list from a given element.
     // note: element must be <select> with <option> tags that will turn into the items
-    RPGUI.__create_funcs["list"] = function (element) {
-        RPGUI.add_class(element, _list_class);
+    _create_funcs["list"] = function (element) {
+        addClass(element, _list_class);
         create_list(element);
     };
 
@@ -584,9 +558,9 @@ function addList() {
             elem.size = 3;
 
         // create the list to hold all the options
-        const list = RPGUI.create_element("ul");
+        const list = createElement("ul");
         if (elem.id) { list.id = elem.id + "-rpgui-list"; };
-        RPGUI.add_class(list, "rpgui-list-imp");
+        addClass(list, "rpgui-list-imp");
         elem.parentNode.insertBefore(list, elem.nextSibling);
 
         // now hide the original select
@@ -601,7 +575,7 @@ function addList() {
                 continue;
 
             // add the new option as list item
-            const item = RPGUI.create_element("li");
+            const item = createElement("li");
             item.innerHTML = option.innerHTML;
             list.appendChild(item);
 
@@ -612,7 +586,7 @@ function addList() {
             all_items.push(item);
 
             // copy all event listeners from original option to the new item
-            RPGUI.copy_event_listeners(option, item);
+            copyEventListeners(option, item);
 
             // set option callback (note: wrapped inside namespace to preserve vars)
             (function (elem, option, item, list, all_items) {
@@ -621,7 +595,7 @@ function addList() {
                     // select the option in the original selection
                     if (!elem.disabled) {
                         option.selected = true;
-                        RPGUI.fire_event(elem, "change");
+                        fireEvent(elem, "change");
                     }
                 });
 
@@ -649,10 +623,10 @@ function addList() {
                 for (let i = 0; i < all_items.length; ++i) {
                     const item = all_items[i];
                     if (item.dataset['rpguivalue'] == elem.value) {
-                        RPGUI.add_class(item, "rpgui-selected");
+                        addClass(item, "rpgui-selected");
                     }
                     else {
-                        RPGUI.remove_class(item, "rpgui-selected");
+                        removeClass(item, "rpgui-selected");
                     }
                 }
             }
@@ -669,8 +643,8 @@ function addSlider() {
 
     // create a rpgui-slider from a given element.
     // note: element must be <input> of type "range" for this to work properly.
-    RPGUI.__create_funcs["slider"] = function (element) {
-        RPGUI.add_class(element, _slider_class);
+    _create_funcs["slider"] = function (element) {
+        addClass(element, _slider_class);
         create_slider(element);
     };
 
@@ -688,39 +662,39 @@ function addSlider() {
     // upgrade a single "input" element to the beautiful slider class
     function create_slider(elem) {
         // check if should do it golden slider
-        const golden = RPGUI.has_class(elem, "golden") ? " golden" : "";
+        const golden = hasClass(elem, "golden") ? " golden" : "";
 
         // create the containing div for the new slider
-        const slider_container = RPGUI.create_element("div");
+        const slider_container = createElement("div");
         if (elem.id) { slider_container.id = elem.id + "-rpgui-slider"; };
-        RPGUI.copy_css(elem, slider_container);
-        RPGUI.add_class(slider_container, "rpgui-slider-container" + golden);
+        copyCss(elem, slider_container);
+        addClass(slider_container, "rpgui-slider-container" + golden);
 
         // insert the slider container
-        RPGUI.insert_after(slider_container, elem);
+        insertAfter(slider_container, elem);
 
         // set container width based on element original width
         slider_container.style.width = elem.offsetWidth + "px";
 
         // create slider parts (edges, track, thumb)
         // track
-        const track = RPGUI.create_element("div");
-        RPGUI.add_class(track, "rpgui-slider-track" + golden);
+        const track = createElement("div");
+        addClass(track, "rpgui-slider-track" + golden);
         slider_container.appendChild(track);
 
         // left edge
-        const left_edge = RPGUI.create_element("div");
-        RPGUI.add_class(left_edge, "rpgui-slider-left-edge" + golden);
+        const left_edge = createElement("div");
+        addClass(left_edge, "rpgui-slider-left-edge" + golden);
         slider_container.appendChild(left_edge);
 
         // right edge
-        const right_edge = RPGUI.create_element("div");
-        RPGUI.add_class(right_edge, "rpgui-slider-right-edge" + golden);
+        const right_edge = createElement("div");
+        addClass(right_edge, "rpgui-slider-right-edge" + golden);
         slider_container.appendChild(right_edge);
 
         // thumb (slider value show)
-        const thumb = RPGUI.create_element("div");
-        RPGUI.add_class(thumb, "rpgui-slider-thumb" + golden);
+        const thumb = createElement("div");
+        addClass(thumb, "rpgui-slider-thumb" + golden);
         slider_container.appendChild(thumb);
 
         // hide original slider
@@ -729,7 +703,7 @@ function addSlider() {
         // copy events from original slider to container.
         // this will handle things like click, mouse move, mouse up, etc.
         // it will not handle things like "onchange".
-        RPGUI.copy_event_listeners(elem, slider_container);
+        copyEventListeners(elem, slider_container);
 
         // now set events (wrap them in anonymous function to preserve local vars)
         const state = { mouse_down: false };
@@ -822,21 +796,21 @@ function addProgress() {
 
     // create a rpgui-progress from a given element.
     // note: element must be <input> of type "range" for this to work properly.
-    RPGUI.__create_funcs["progress"] = function (element) {
-        RPGUI.add_class(element, _progress_class);
+    _create_funcs["progress"] = function (element) {
+        addClass(element, _progress_class);
         create_progress(element);
     };
 
     // set function to set value of the progress bar
     // value should be in range of 0 - 1.0
-    RPGUI.__set_funcs["progress"] = function (elem, value) {
+    _set_funcs["progress"] = function (elem, value) {
         // get trackbar and progress bar elements
-        const track = RPGUI.get_child_with_class(elem, "rpgui-progress-track");
-        const progress = RPGUI.get_child_with_class(track, "rpgui-progress-fill");
+        const track = getChildWithClass(elem, "rpgui-progress-track");
+        const progress = getChildWithClass(track, "rpgui-progress-fill");
 
         // get the two edges
-        const edge_left = RPGUI.get_child_with_class(elem, "rpgui-progress-left-edge");
-        const edge_right = RPGUI.get_child_with_class(elem, "rpgui-progress-right-edge");
+        const edge_left = getChildWithClass(elem, "rpgui-progress-left-edge");
+        const edge_right = getChildWithClass(elem, "rpgui-progress-right-edge");
 
         // set progress width
         progress.style.left = "0px";
@@ -860,33 +834,33 @@ function addProgress() {
         const progress_container = elem;
 
         // insert the progress container
-        RPGUI.insert_after(progress_container, elem);
+        insertAfter(progress_container, elem);
 
         // create progress parts (edges, track, thumb)
         // track
-        const track = RPGUI.create_element("div");
-        RPGUI.add_class(track, "rpgui-progress-track");
+        const track = createElement("div");
+        addClass(track, "rpgui-progress-track");
         progress_container.appendChild(track);
 
         // left edge
-        const left_edge = RPGUI.create_element("div");
-        RPGUI.add_class(left_edge, "rpgui-progress-left-edge");
+        const left_edge = createElement("div");
+        addClass(left_edge, "rpgui-progress-left-edge");
         progress_container.appendChild(left_edge);
 
         // right edge
-        const right_edge = RPGUI.create_element("div");
-        RPGUI.add_class(right_edge, "rpgui-progress-right-edge");
+        const right_edge = createElement("div");
+        addClass(right_edge, "rpgui-progress-right-edge");
         progress_container.appendChild(right_edge);
 
         // the progress itself
-        const progress = RPGUI.create_element("div");
-        RPGUI.add_class(progress, "rpgui-progress-fill");
+        const progress = createElement("div");
+        addClass(progress, "rpgui-progress-fill");
         track.appendChild(progress);
 
         // set color
-        if (RPGUI.has_class(elem, "blue")) { progress.className += " blue"; }
-        if (RPGUI.has_class(elem, "red")) { progress.className += " red"; }
-        if (RPGUI.has_class(elem, "green")) { progress.className += " green"; }
+        if (hasClass(elem, "blue")) { progress.className += " blue"; }
+        if (hasClass(elem, "red")) { progress.className += " red"; }
+        if (hasClass(elem, "green")) { progress.className += " green"; }
 
         // set starting default value
         const starting_val = elem.dataset.value !== undefined ? parseFloat(elem.dataset.value) : 1;
@@ -904,15 +878,15 @@ export function addDragDrop() {
 
     // set element as draggable
     // note: this also add the "rpgui-draggable" css class to the element.
-    RPGUI.__create_funcs["draggable"] = function (element) {
+    _create_funcs["draggable"] = function (element) {
         // prevent forms of default dragging on this element
         element.draggable = false;
         element.ondragstart = function () { return false; };
 
         // add the mouse down event listener
-        RPGUI.add_class(element, _draggable_class);
+        addClass(element, _draggable_class);
         element.addEventListener('mousedown', mouseDown);
-        console.log("RPGUI.__create_funcs");
+        console.log("_create_funcs");
     };
 
     // init all draggable elements (objects with "rpgui-draggable" class)
@@ -938,17 +912,13 @@ export function addDragDrop() {
 
         // set dragged object and make sure its really draggable
         const target = e.target || e.srcElement;
-        if (!RPGUI.has_class(target, _draggable_class)) { return; }
-
+        if (!hasClass(target, _draggable_class)) { return; }
         _curr_dragged = target;
-
         // set holding point
         const rect = _curr_dragged.getBoundingClientRect();
         _curr_dragged_point = { x: rect.left - e.clientX, y: rect.top - e.clientY };
-
         // add z-index to top this element
         target.style.zIndex = _dragged_z++;
-
         // begin dragging
         window.addEventListener('mousemove', divMove, true);
 
@@ -971,12 +941,12 @@ function update(element) {
     RPGUI.update = function (element) {
         // if have update callback for this type, use it
         const type = element.dataset['rpguitype'];
-        if (RPGUI.__update_funcs[type]) {
-            RPGUI.__update_funcs[type](element);
+        if (_update_funcs[type]) {
+            _update_funcs[type](element);
         }
         // if not, use the default (firing update event)
         else {
-            RPGUI.fire_event(element, "change");
+            fireEvent(element, "change");
         }
         console.log("RPGUI.update");
     }
